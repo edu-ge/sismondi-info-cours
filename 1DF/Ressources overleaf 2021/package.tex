@@ -1,0 +1,504 @@
+
+%à compiler avec XeLaTeX à cause des image pstricks
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french]{babel}
+\usepackage{listingsutf8}
+\usepackage{tikz,pgf}
+\usepackage{amsthm,titlesec}
+\usepackage{mdframed} % pour le format des définition, théorèmes...
+\usepackage{xcolor,rotating,systeme}
+\usepackage[Glenn]{fncychap} %pour le format des chapitres
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=2cm,headsep=10pt,a4paper]{geometry} % Page margins
+\usepackage{multicol}
+\usepackage{enumerate,cancel}
+\usepackage{lipsum,minitoc}
+%\usepackage{chngcntr}
+\usepackage{amsmath,amsfonts,minitoc,amsthm,pgfplots}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows, intersections}
+\usepackage{mathrsfs}
+\usepackage{array,yhmath}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+\restylefloat{figure}
+\usepackage{subfig}
+
+\usepackage{listings}
+\usepackage{color}
+\lstset{ % General setup for the package
+    language=Python,
+    basicstyle=\footnotesize,
+    basewidth=0.7em,
+    numbers=left,
+     numberstyle=\tiny,
+    frame=lines,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces,
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue},
+    stringstyle=\color{magenta},
+    inputencoding=utf8/latin1,
+            extendedchars=true,
+            literate=%
+            {é}{{\'{e}}}1
+            {è}{{\`{e}}}1
+            {ê}{{\^{e}}}1
+            {ë}{{\¨{e}}}1
+            {û}{{\^{u}}}1
+            {ù}{{\`{u}}}1
+            {â}{{\^{a}}}1
+            {à}{{\`{a}}}1
+            {î}{{\^{i}}}1
+            {ô}{{\^{o}}}1
+            {ç}{{\c{c}}}1
+            {Ç}{{\c{C}}}1
+            {É}{{\'{E}}}1
+            {Ê}{{\^{E}}}1
+            {À}{{\`{A}}}1
+            {Â}{{\^{A}}}1
+            {Î}{{\^{I}}}1
+    }
+
+
+
+\usepackage{lipsum}
+\newtheorem{example}{Exemple}
+
+\usepackage{pstricks,pst-plot,pstricks-add}
+\usepackage{pst-func,tkz-tab,tkz-euclide}
+\usepackage{graphicx}
+%macro exo
+\newcounter{mtex}[chapter]
+\newcommand{\mtexlabel}{\cadrexo{\themtex}}
+\newcommand{\cadrexo}[1]{%
+\tikz\node[rectangle,minimum size=6mm,rounded corners=2mm,fill=ocre,inner sep=0pt,text width=0.8cm,align=center]{\large\bfseries\textcolor{white}{#1}};}
+\definecolor{ocre}{RGB}{196,106,106}
+\definecolor{vert}{RGB}{55,120,0}
+\newcommand{\mtexlabelpos}[1]{%
+\makebox[0pt][r]{\raisebox{#1\baselineskip}[0pt][0pt]{\mtexlabel\quad}}}
+\newenvironment{exercice}[1][\empty]{%
+\refstepcounter{mtex}%
+\trivlist\item\relax%  
+\ifx#1\empty\mtexlabelpos{-.7}\else\mtexlabelpos{-.5}%
+\hfill\textbf{#1}\hfill\mbox{}\par\fi%
+}{\endtrivlist}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\ssi}{\;\;\Leftrightarrow\;\;}
+
+\newcommand{\point}[1]{-- +(#1,#1) -- +(-#1,-#1) -- +(0,0) -- +(-#1,#1) -- +(#1,-#1)} 
+
+
+\newcommand{\parallele}{\mathbin{\!/\mkern-5mu/\!}} %signe parallèle
+
+\titleformat{\chapter}[frame]
+{\setlength\fboxrule{2.25pt}\color{black}}%
+{\filleft\scshape\LARGE%
+\enspace  Chapitre \thechapter\enspace}%
+{20pt}
+{\rule{0pt}{30pt}\Huge\scshape\filleft}
+
+\newcommand\fonction[5]{
+$\begin{array}{rrll}
+#1: & #2 & \rightarrow & #3 \\
+  & #4 & \mapsto & #5
+\end{array}$
+}
+
+%\titleformat
+%{\section} % command
+%[hang] % shape
+%{\bfseries\Large} % format
+%{ \thesection\quad} % label
+%{0em} % sep
+%{
+%} % before-code
+%[
+%\vspace{-1ex}%
+%\textcolor{blue!60}{\rule{10cm}{3pt}}
+%] % after-code
+
+
+%\theoremstyle{break}
+\newtheoremstyle{definition-style}  %style des theoreme
+{}               
+{}               
+{}                   
+{}                   
+{\bf\sffamily} 
+{~:\\[0.3cm]}                 
+{.5em}               
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\mdfdefinestyle{defi-frame}{
+linewidth=10pt, %
+linecolor= blue!50, % 
+backgroundcolor= blue!20,
+topline=false, %
+bottomline=false, %
+rightline=false,%
+leftmargin=0pt, %
+innerleftmargin=15pt, %
+innerrightmargin=1em, 
+rightmargin=0pt, % 
+innertopmargin=-2pt,%
+innerbottommargin=6pt, % 
+splittopskip=\topskip, %
+%splitbottomskip=\topskip, %
+}% 
+
+\mdfdefinestyle{methode-frame}{
+	linewidth=10pt, %
+linecolor= gray!70, % 
+backgroundcolor= white,
+topline=false, %
+bottomline=false,%
+rightline=false,%
+leftmargin=0pt, %
+innerleftmargin=15pt, %
+innerrightmargin=1em, 
+rightmargin=0pt, % 
+innertopmargin=-2pt,%
+innerbottommargin=6pt, % 
+splittopskip=\topskip, %
+%splitbottomskip=\topskip, %
+}% 
+
+
+\mdfdefinestyle{thm-frame}{
+linewidth=10pt, %
+linecolor= red!50, % 
+backgroundcolor= orange!30,
+topline=false, %
+bottomline=false, %
+rightline=false,%
+leftmargin=0pt, %
+innerleftmargin=15pt, %
+innerrightmargin=1em, 
+rightmargin=0pt, % 
+innertopmargin=-2pt,%
+innerbottommargin=6pt, % 
+splittopskip=\topskip, %
+%splitbottomskip=\topskip, %
+}% 
+
+\mdfdefinestyle{lem-frame}{
+linewidth=10pt, %
+linecolor= yellow!50, % 
+backgroundcolor= yellow!10,
+topline=false, %
+bottomline=false, %
+rightline=false,%
+leftmargin=0pt, %
+innerleftmargin=15pt, %
+innerrightmargin=1em, 
+rightmargin=0pt, % 
+innertopmargin=-2pt,%
+innerbottommargin=6pt, % 
+splittopskip=\topskip, %
+%splitbottomskip=\topskip, %
+}% 
+
+\mdfdefinestyle{notation-frame}{
+linewidth=10pt, %
+linecolor= blue!30, % 
+backgroundcolor= blue!10,
+topline=false, %
+bottomline=false, %
+rightline=false,%
+leftmargin=0pt, %
+innerleftmargin=15pt, %
+innerrightmargin=1em, 
+rightmargin=0pt, % 
+innertopmargin=-2pt,%
+innerbottommargin=6pt, % 
+splittopskip=\topskip, %
+%splitbottomskip=\topskip, %
+}% 
+
+\mdfdefinestyle{remarque-frame}{
+linewidth=0pt, %
+linecolor= black!0, % 
+backgroundcolor= blue!0,
+topline=false, %
+bottomline=false, %
+rightline=false,%
+leftmargin=0pt, %
+innerleftmargin=25pt, %
+innerrightmargin=25pt, 
+rightmargin=0pt, % 
+innertopmargin=-2pt,%
+innerbottommargin=6pt, % 
+splittopskip=\topskip, %
+%splitbottomskip=\topskip, %
+}% 
+\surroundwithmdframed[style=defi-frame]{defi}
+
+\surroundwithmdframed[style=thm-frame]{thm}
+
+\surroundwithmdframed[style=lem-frame]{lem}
+
+\surroundwithmdframed[style=notation-frame]{notation}
+
+\surroundwithmdframed[style=remarque-frame]{remarque}
+
+\surroundwithmdframed[style=remarque-frame]{remarques}
+
+\surroundwithmdframed[style=methode-frame]{methode}
+
+\theoremstyle{definition-style}
+
+%pour avoir un compteur commun a remarque et remarques
+\newcounter{compteurremarque}[chapter]
+\renewcommand{\thecompteurremarque}{\arabic{compteurremarque}} %définition de l'affichage du compteur
+
+\newtheorem{defi}{Définition}[chapter]
+\renewcommand{\thedefi}{\arabic{defi}} %pour ne pas avoir le numéro du chapitre dans la numération de la def
+\newtheorem{thm}{Théorème}[chapter]
+\renewcommand{\thethm}{\arabic{thm}}
+\newtheorem{lem}{Lemme}[chapter]
+\renewcommand{\thelem}{\arabic{lem}}
+\newtheorem{notation}{Notation}[chapter]
+\renewcommand{\thenotation}{\arabic{notation}}
+%\newtheorem{remarque}{Remarque}[chapter]
+%\renewcommand{\theremarque}{\arabic{remarque}}
+%\newtheorem{remarques}{Remarques}[chapter]
+%\renewcommand{\theremarques}{\arabic{remarques}}
+\newtheorem{methode}{Méthode}[chapter]
+\renewcommand{\themethode}{\arabic{methode}}
+
+
+\newtheorem{remarque}[compteurremarque]{Remarque}
+\newtheorem{remarques}[compteurremarque]{Remarques} %remarque et remarques prennent compteurremarque comme compteur commun
+
+\lstMakeShortInline[columns=fixed]|
+
+%%%%%%%% Commandes de Matthieu
+
+%-------------------------------------------------------------------------------
+%---- Eclairage : en encadré sur fond jaune avec symbôle "ampoule" à gauche ----
+%-------------------------------------------------------------------------------
+\definecolor{coleclairage}{RGB}{255 , 221 , 156}
+\definecolor{contoureclairage}{RGB}{255 , 192 , 0}
+\newenvironment{eclairage}
+{
+	\begin{center}%
+		\begin{tikzpicture}%
+			\node[rectangle, draw=contoureclairage, top color=coleclairage!50, bottom color=coleclairage!140, rounded corners=5pt, inner xsep=5pt, inner ysep=6pt, outer ysep=10pt]\bgroup                     
+			\begin{minipage}{0.98\linewidth}
+				\begin{minipage}{0.08\linewidth}\centerline{\includegraphics[scale=1]{images/Symbole_eclairage.png}}\end{minipage}
+				\begin{minipage}{0.89\linewidth}\itshape\footnotesize
+				}
+				{                		
+				\end{minipage}
+			\end{minipage}\egroup;%
+		\end{tikzpicture}%
+	\end{center}%
+}
+
+
+
+\newcommand{\putfigure}[6]{
+    \begin{minipage}{#1\textwidth}
+    \centering
+        \includegraphics[width=#2\textwidth,height=#3\textheight]{#4}
+        \captionof{figure}{#5}
+        \label{#6}
+    \end{minipage}
+}
+
+
+\newcommand{\itemb}[1]{\item \textbf{#1}}
+
+
+
+%-------------------------------------------------------------------------------
+%---- apprendre : en encadré sur fond jaune avec symbole "ampoule" à gauche ----
+%-------------------------------------------------------------------------------
+\definecolor{colapprendre}{RGB}{50,205,50}
+\definecolor{contourapprendre}{RGB}{34,139,34}
+\newenvironment{apprendre}
+{
+	\begin{center}%
+		\begin{tikzpicture}%
+			\node[rectangle, draw=contourapprendre, top color=colapprendre!10, bottom color=colapprendre!50, rounded corners=5pt, inner xsep=5pt, inner ysep=6pt, outer ysep=10pt]\bgroup                     
+			\begin{minipage}{0.98\linewidth}
+				\begin{minipage}{0.08\linewidth}\centerline{\includegraphics[width=30px]{images/Symbole_learn.png}}\end{minipage}
+				\begin{minipage}{0.89\linewidth}\itshape\footnotesize
+				}
+				{                		
+				\end{minipage}
+			\end{minipage}\egroup;%
+		\end{tikzpicture}%
+	\end{center}%
+}
+
+\definecolor{colimportant}{RGB}{247 , 189 , 164}
+\definecolor{contourimportant}{RGB}{237 , 125 , 49}
+\newenvironment{important}
+{
+	\begin{center}%
+		\begin{tikzpicture}%
+			\node[rectangle, draw=contourimportant, top color=colimportant!50, bottom color=colimportant!140, rounded corners=5pt, inner xsep=5pt, inner ysep=6pt, outer ysep=10pt]\bgroup                     
+			\begin{minipage}{0.08\linewidth}\centerline{\includegraphics[scale=0.8]{images/Symbole_attention.png}}\end{minipage}
+			\begin{minipage}{0.89\linewidth}
+			}
+			{                		
+			\end{minipage}\egroup;
+		\end{tikzpicture}%
+	\end{center}%
+}
+
+%----------------------------------------------
+\newcounter{compteurmonprogramme}
+\setcounter{compteurmonprogramme}{1}
+\newenvironment{monprogramme}
+{
+	\begin{center}%
+		\begin{tikzpicture}%
+			\node[rectangle, draw=black, rounded corners=5pt, inner xsep=5pt, inner ysep=6pt, outer ysep=10pt]\bgroup                     
+			\begin{minipage}{0.98\linewidth}
+				{\bf Programme \thechapter.\thecompteurmonprogramme\;:}
+				
+				\vspace{2mm}\hspace{7.5mm}
+				\begin{minipage}{0.93\linewidth}
+				}
+				{                		
+				\end{minipage}
+				\stepcounter{compteurmonprogramme}
+			\end{minipage}\egroup;%
+		\end{tikzpicture}%
+	\end{center}%
+}
+
+
+
+%------------------------------------------------
+%---- Définition : en encadré sur fond blanc ----
+%------------------------------------------------
+\newcounter{compteurdef}
+\setcounter{compteurdef}{1}
+\newenvironment{mydefinition}
+{
+	\begin{center}%
+	\begin{tikzpicture}%
+		\node[rectangle, draw=black, rounded corners=5pt, inner xsep=5pt, inner ysep=6pt, outer ysep=10pt]\bgroup                    
+		\begin{minipage}{0.98\linewidth}
+			{\bf {\underline {Définition \thechapter.\thecompteurdef}}}
+			
+			\vspace{2mm}\hspace{4.5mm}
+			\begin{minipage}{0.93\linewidth}
+			}
+			{                		
+			\end{minipage}
+			\stepcounter{compteurdef}
+		\end{minipage}\egroup;%
+	\end{tikzpicture}%
+\end{center}%
+}
+
+\newenvironment{mydefinitions}
+{
+	\begin{center}%
+		\begin{tikzpicture}%
+			\node[rectangle, draw=black, rounded corners=5pt, inner xsep=5pt, inner ysep=6pt, outer ysep=10pt]\bgroup                    
+			\begin{minipage}{0.98\linewidth}
+				{\bf {\underline {Définitions \thechapter.\thecompteurdef}}}
+				
+				\vspace{3mm}\hspace{4.5mm}
+				\begin{minipage}{0.93\linewidth}\slshape
+					\begin{itemize}\setlength{\itemsep}{1mm}
+					}
+					{                		
+				\end{itemize}\end{minipage}
+				\stepcounter{compteurdef}
+			\end{minipage}\egroup;%
+		\end{tikzpicture}%
+	\end{center}%
+}
+
+
+
+%------------------------------------------------
+%---- Exemple : en encadré sur fond blanc ----
+%------------------------------------------------
+\newcounter{compteurex}
+\setcounter{compteurex}{1}
+\newenvironment{myexample}{
+	\begin{center}
+	\vspace{-3mm}
+	\begin{minipage}{1\linewidth}
+		\vspace{2mm}
+		{\textsl {\underline {Exemple \thechapter.\thecompteurex}}}
+		
+		\vspace{2mm}\hspace{2.5mm}
+		\begin{minipage}{1\linewidth}
+			\begin{mdframed}[topline=false,rightline=false,bottomline=false]
+}
+{
+			\end{mdframed}
+		\end{minipage}
+		\stepcounter{compteurex}
+	\end{minipage}
+	\end{center}
+}
+\newenvironment{myexamples}{
+	\begin{center}
+		\vspace{-3mm}
+		\begin{minipage}{1\linewidth}
+			\vspace{2mm}
+			{\textsl {\underline {Exemples \thechapter.\thecompteurex}}}
+			
+			\vspace{2mm}\hspace{2.5mm}
+			\begin{minipage}{1\linewidth}%\slshape
+				\begin{mdframed}[topline=false,rightline=false,bottomline=false]
+					\begin{enumerate}\setlength{\itemsep}{1mm}
+				}
+				{
+					\end{enumerate}
+				\end{mdframed}
+			\end{minipage}
+			\stepcounter{compteurex}
+		\end{minipage}
+	\end{center}
+}
+
+
+
+\newtheorem*{question}{Question}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   LABELS activite   %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\act}{\textbf{\textsl{Activité \arabic{compteuract}}} \vspace*{1mm}\\ \addtocounter{compteuract}{1}}
+\newcommand{\actnomme}[1]{{\bf Activité \arabic{compteuract} {\textsl{\small (#1)}}}\vspace*{1mm}\\  \addtocounter{compteuract}{1}}
+\newcounter{compteuract}
+\setcounter{compteuract}{1}
+\newcommand{\getactcompteur}{{\the\numexpr \arabic{compteuract} - 1 \relax}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   LABELS EXERCICES   %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\exo}{\textbf{\textsl{Exercice \arabic{compteurexo}}} \vspace*{1mm}\\ \addtocounter{compteurexo}{1}}
+\newcommand{\exonomme}[1]{{\bf Exercice \arabic{compteurexo} {\textsl{\small (#1)}}}\vspace*{1mm}\\  \addtocounter{compteurexo}{1}}
+\newcommand{\eexo}{\vspace{5mm}} % espace pour séparer les exercices
+\newcounter{compteurexo}
+\setcounter{compteurexo}{1}
+\newcommand{\getexocompteur}{{\the\numexpr \arabic{compteurexo} - 1 \relax}}

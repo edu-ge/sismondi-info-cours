@@ -1,0 +1,99 @@
+
+\documentclass[11pt, a4paper]{book}
+\input{package.tex}
+\pgfplotsset{compat=1.17}
+\begin{document}
+
+\setcounter{chapter}{7}
+
+\chapter{Programmation - Les booléens}
+
+\vspace{-0.8cm}
+\section{Vrai ou faux?}
+Comme étudié dans le cas des test, un programme se doit de prendre des décisions. Dans notre vie de tous les jours, nos décision dépendent le plus souvent des questions qui se répondent par \textit{oui} ou par \textit{non}. Par exemple, "est-ce qu'il pleut aujourd'hui" ou "êtes-vous mineur". La plupart des langages de programmation comme Python ne possèdent pas de type oui/non mais plutôt un type vrai/faux (\lstinline{True} / \lstinline{False}) qui joue un rôle similaire. Ce type s'appelle \textbf{booléen}. Dans ce contexte, les décisions du programme dépendent plutôt de la véracité d'une \textit{affirmation}. Par exemple, au lieu de répondre à la question "êtes-vous mineur?", on s'intéressera à savoir si l'affirmation "vous êtes mineur" est vraie. Par exemple, en Python, cela ce traduirait par 
+\begin{lstlisting}[numbers=none]
+age = int(input("Quel est votre age"))
+mineur =  age < 18
+\end{lstlisting}
+
+Comme étudié dans le chapitre sur les tests, un programme est souvent confronté à devoir prendre des décisions. 
+\begin{mydefinition}
+	Une \textbf{booléen} est un type de variable à deux états, généralement noté \textit{vrai} (ou 1) et \textit{faux} (ou 0). \\
+	
+	En langage \lstinline{python},  le type d’une telle variable est \lstinline{bool}, les deux valeurs possibles sont \lstinline{True} ou \lstinline{False}.
+\end{mydefinition}
+
+\section{Opérateur de comparaison}
+Le plus souvent, un booléen est obtenu lorsque l'on évalue une expression qui compare des valeurs.  Les opérateurs de comparaison sont les suivants
+		\begin{center}
+	\begin{tabular}{|c|c|l|}
+		\hline
+%		\rowcolor[HTML]{EFEFEF} 
+		Opérateur & Expression  & Signification  \\ \hline
+		==&      x == y&          Égal   \\ \hline
+		!=&     x  != y&          Non égal   \\ \hline
+		>&       x > y &         Plus grand que   \\ \hline
+		<&      x < y &          Plus petit que   \\ \hline
+		>=&      x >= y&         Plus grand ou égal à   \\ \hline
+		<=&      x <= y&         Plus petit ou égal à  \\ \hline
+		is&       x is y&        est identique  \\ \hline
+	  is not&     x is not y&    n’est pas identique   \\ \hline
+		
+	\end{tabular}
+\end{center}
+\begin{important}
+	Il ne faut pas confondre la simple égalité "\lstinline{=}" qui représente l'affectation de la double égalité "\lstinline{==}" qui teste si deux valeurs sont égales. Par exemple, le programme
+	\begin{lstlisting}[numbers=none]
+ n = 2**4
+ m = 16
+ print(n == m)
+	\end{lstlisting}
+    affiche \lstinline{True} car $2^4$ est égal à $16$.
+\end{important}
+
+\exo Dans l'interpréteur Python, taper les lignes suivantes et compléter celles en pointillés.
+\begin{lstlisting}[numbers=none]
+>>> x=7 
+>>> y=17 
+>>> x==y
+......................................
+>>> x!=y
+....................................... 
+>>> x>y 
+..................................... 
+>>> x>=y 
+..................................... 
+>>> x<y 
+..................................... 
+>>> x<=y 
+................................... 
+>>> x is y 
+................................... 
+>>> x is not y 
+..................................
+\end{lstlisting}
+
+\exo Evaluer le résultat des expressions suivantes
+\begin{lstlisting}[numbers=none]
+3 == 1 + 2
+1.0 == 1 
+"1" == 1
+3 != 1 + 2
+1.0 != 1
+1 < 0
+"c" <= "h"
+"h" > "B"
+1.0 is 1 
+1 + 2 is not 3
+\end{lstlisting}
+\begin{important}
+	Si les expressions comparées ne sont pas du « même » type, une \lstinline{TypeError} est générée (sauf pour l’opérateur is).	
+\end{important}
+
+
+\section{Opérations  booléens}
+Mon réveil sonne le matin lorsque deux conditions sont satisfaites.
+
+
+
+\end{document}

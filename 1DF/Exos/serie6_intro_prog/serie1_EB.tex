@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt]{article} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{0}                                    %Numéro de la série -1
+
+\input{../package.tex}
+\definecolor{light-gray}{gray}{0.95} 
+\lstset{language=Python, upquote=true, showstringspaces=false, columns=fullflexible, basicstyle = \ttfamily, backgroundcolor = \color{light-gray}, numbers=right, stepnumber=1, keywordstyle=\color{blue}, stringstyle=\color{magenta}, commentstyle=\color{red}, breaklines=true,} 
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO,CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+\setcounter{section}{\numero}
+
+\section{Introduction à la programmation}				
+\Opensolutionfile{mycor}[cor_01]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Exercice en console Thonny]  ~\\ 
+\begin{enumerate}
+	\item Ouvrir l'éditeur Thonny sur le PC (Kubuntu, MacOS, Windows).
+	\item Utilisez Python en mode interactif. Ce mode permet de rapidement tester une commande. Écrivez, dans la console, une à une les lignes suivantes et assurez vous de comprendre le résultat. Pour chaque ligne compléter avec le résultat obtenu :
+	\lstinputlisting[label={exo1},numbers=none ]
+	{codes/code_interactif.py}
+	\item Surpris ? 
+	        Que représentent les symboles \#, ** et \% ?
+	\item Pourquoi la ligne \texttt{">>> k + 3"} affiche 37 ?
+\end{enumerate}
+\begin{correction}
+	~\\ \vspace{-5pt}
+	\lstinputlisting[numbers=none]{codes/corr_code_interactif.py}
+\end{correction}
+
+\finexo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%             EXERCICE              %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[L'interpréteur Python]  ~\\ 
+\begin{enumerate}
+	\item Pour enregistrer des programmes plus longs, il faudra rédiger vos lignes de code dans un document texte simple. L'extension de ce document devra être '.py'. L'exécution de ce programme peut également se faire depuis l'IDE Thonny.
+	\item Créez un script nommé  "exercice\_\getexocompteur.py" qui contient le code suivant
+	\begin{lstlisting}[numbers=none]
+15+3
+2 - 17 
+8 + 3 * 4 
+print((8+3)*4)
+20 / 3
+"Le père Noël dit: " + 3 * "HO! "
+print("C'est bizarre.")	
+	\end{lstlisting}
+	puis exécutez le programme, que constatez-vous?
+\end{enumerate}
+\begin{eclairage}
+	Lorsque \py interprète un programme à partir d'un fichier alors il n'affiche pas le résultat de l'évaluation de chaque expression. Pour afficher une donnée il faut utiliser la commande \lstinline{print}.
+\end{eclairage}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%             EXERCICE              %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Premier programme]  ~\\ 
+\begin{enumerate}
+	\item Créer un nouveau fichier dans l'éditeur appelé "exercice\_\getexocompteur.py" qui contient le code suivant:
+	\lstinputlisting[label={premierprg},numbers=none ]
+	{codes/premier_prog_python.py}
+	\item Exécuter le programme dans Thonny instruction après instruction en mode débogueur afin de comprendre que fait le programme.
+\end{enumerate}
+\begin{center}
+	\includegraphics{Thonny-debug.png}
+\end{center}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%             EXERCICE              %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[première modification]  ~\\ 
+	\begin{enumerate}
+		\item Créer un nouveau fichier dans l'éditeur appelé "exercice\_\getexocompteur.py" qui contient le code suivant
+		\lstinputlisting[numbers=none]{codes/verif_age.py}
+		\item Enregistrer sur votre Google drive (classroom) le fichier "exercice\_\getexocompteur.py" dans un dossier dédié aux exercices du chapitre "série\thesection"?
+		\item Quel est le but de ce programme?
+		\item Inspirez-vous de l'exemple ci-dessus pour écrire un programme qui vérifie l'âge d'un client d'un bar à New York afin de savoir s'il a le droit de consommer de l'alcool.\\ \textit{Rappel: au État-Unis, la consommation d'alcool est interdite en dessous de 21 ans.}
+	\end{enumerate}
+	\begin{correction}
+		~\\ \vspace{-5pt}
+		\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+	\end{correction}
+\finexo
+
+\begin{apprendre}
+	Pour communiquer avec l'utilisateur le langage \py propose deux fonctions de bases:
+	\begin{itemize}
+		\item \lstinline{print} qui permet d'afficher une donné ou un message.\\
+		Exemple: \lstinline{print("C'est bizarre.")}
+		\item \lstinline{input} qui interrompt le programme et attend que l'utilisateur entre une donnée et la valide avec \textit{Enter}.\\
+		Exemple: \lstinline{input("Quel est votre age ? ")}
+	\end{itemize}
+\end{apprendre}
+
+
+\cleardoublepage
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO,CE]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}

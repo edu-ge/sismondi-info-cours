@@ -1,0 +1,170 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{4}                                    %Numéro de la série -1
+
+\input{../package.tex}
+\definecolor{light-gray}{gray}{0.95} 
+\lstset{language=Python, upquote=true, showstringspaces=false, columns=fullflexible, basicstyle = \ttfamily, backgroundcolor = \color{light-gray}, numbers=right, stepnumber=1, keywordstyle=\color{blue}, stringstyle=\color{magenta}, commentstyle=\color{red}, breaklines=true,} 
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO]{\sc Série \arabic{section} \hspace{0.5mm}}
+%\fancyhead[CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+\setcounter{section}{\numero}
+
+\section{Qui cherche trouve}
+\Opensolutionfile{mycor}[cor01]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Deviner un nombre]  ~\\ 
+Vous devez réaliser un programme dans lequel un joueur ou une joueuse doit trouver un nombre compris entre 1 et 100. Les étapes à réaliser sont les suivantes:
+
+\begin{enumerate}
+\item L'ordinateur choisit au hasard un nombre entre 1 et 100.
+\item Le programme demande au joueur ou à la joueuse d'entrer un nombre.
+\item À chaque essai l'ordinateur indique si le nombre à trouver est plus grand ou plus petit que le nombre tiré au hasard par l'ordinateur.
+\end{enumerate}
+
+Prenons un exemple où l'ordinateur a tiré 72 comme nombre aléatoire:
+
+\begin{lstlisting}
+Entrez un nombre: 50
+Le nombre au hasard est plus grand que 50
+Entrez un nombre: 75
+Le nombre au hasard est plus petit que 75
+Entrez un nombre: 70
+Le nombre au hasard est plus grand que 70
+Entrez un nombre: 72
+Bravo vous avez trouvé !
+\end{lstlisting}
+\hfill
+	
+	\vspace{4pt}
+		
+
+Pour utiliser la fonction randint qui retourne un nombre entier au hasard, vous devez importer son module \footnote{On appelle “module” tout fichier constitué de code Python (c'est-à-dire tout fichier avec l'extension .py ) importé dans un autre fichier ou script. Les modules permettent la séparation et donc une meilleure organisation du code.} de la manière suivante dans les premières lignes de votre code:
+
+\begin{lstlisting}
+from random import *
+\end{lstlisting}
+Une fois importé, vous pouvez utiliser la fonction de cette manière:
+\begin{lstlisting}
+nombre_entier_hasard = randint(1,100)
+\end{lstlisting}
+
+\hfill
+	
+	\vspace{4pt}
+		
+
+Dans votre programme, créer une fonction qui aura comme paramètres le nombre au hasard et le nombre saisi par le joueur ou la joueuse. Cette fonction retourne \lstinline{True} si le nombre est trouvé sinon \lstinline{False}. Elle devra également afficher si le nombre saisi est trop grand ou trop petit. 
+\begin{lstlisting}
+def test_nb(nb_hasard, nb_saisi):
+...
+\end{lstlisting}
+\hfill
+	
+	\vspace{4pt}
+		
+Pour demander un nombre au·à la joueur·euse, vous pouvez utiliser la fonction \lstinline{input}:
+\begin{lstlisting}
+reponse = input("Question : ") 
+\end{lstlisting}
+qui retourne la chaîne de caractère entrée par l'utilisateur·trice.
+\begin{lstlisting}
+from random import *
+
+def test_nb(nb_hasard, nb_saisi):
+      ...
+      
+nombre_entier_hasard = randint(1,100)
+...
+nombre_entier_choisi = int(input("Choisissez un nombre entre 1 et 100: "))
+\end{lstlisting}
+
+\begin{correction}
+		~\\ \vspace{-5pt}
+	\begin{lstlisting}
+from random import *
+
+def test_nb(nb_hasard, nb_saisi):
+### Fonction qui compare 2 nombres et retourne True s'ils sont égaux, False sinon ###
+    if nb_hasard > nb_saisi:
+        print("Plus grand...")
+    elif nb_hasard < nb_saisi:
+        print("Plus petit...")
+    return nb_hasard == nb_saisi
+
+# Début de partie
+nombre_entier_hasard = randint(1,100)
+gagne = False
+# print("Nombre au hasard:",nombre_entier_hasard)
+
+# Boucle de jeu
+while not gagne:
+    nombre_entier_choisi = int(input("Choisissez un nombre entre 1 et 100: "))
+    gagne = test_nb(nombre_entier_hasard, nombre_entier_choisi)
+
+#Fin de partie
+print("C'est gagné !")
+\end{lstlisting}
+\hfill
+	\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Suite]  ~\\ 
+Complétez le programme de l'exercice précédent de la manière suivante (pour chaque étape, faites un nouveau programme en ajoutant le nouveau comportement) :
+\begin{enumerate}[topsep=0pt,itemsep=0pt,parsep=30pt,partopsep=0pt]
+\item Créer une fonction qui vérifie les deux points suivants:
+    \begin{enumerate}
+    \item Est-ce bien un nombre entier qui a été saisi ?
+          Utiliser la méthode\footnote{Une méthode est une fonction qui "appartient à" un objet en programmation objet.} \lstinline{isnumeric()}. Exemple d'utilisation:
+        \begin{lstlisting}
+         # retournera True si la variable mon_nombre contient un nombre entier.
+         if mon_nombre.isnumeric():
+             ...
+        \end{lstlisting}
+    \item Est-il bien compris entre 1 et 100 ?
+    \end{enumerate}
+    Cette fonction devra retourner \lstinline{True} si le nombre est bien entier et compris entre 1 et 100. Sinon \lstinline{False}. Ensuite redemandez à l'utilisateur·trice de ressaisir un nombre si besoin.
+\item Ajoutez un compteur qui compte le nombre de tentatives. À la fin de la partie, le programme affiche ce nombre:
+\begin{lstlisting}
+Vous avez gagné en 7 coup(s)
+\end{lstlisting}
+\item Limité le nombre de tentatives à 10. Si le·la joueur·euse n'a pas trouvé en 10 tentatives, le programme donne ensuite la réponse. Par exemple:
+\begin{lstlisting}
+Vous avez joué 10 fois sans trouver... La réponse était 42.
+\end{lstlisting}
+\item Après 5 essais, le programme donne le nombre de tentatives restantes:
+\begin{lstlisting}
+Vous avez encore 5 tentatives.
+\end{lstlisting}
+\item À la fin de la partie, le programme propose de rejouer. \\
+Pour simplifier, le·la joueur·euse entre 0 ou 1:
+\begin{lstlisting}
+Voulez-vous rejouer? Taper 0 pour NON ou taper 1 pour OUI: 
+\end{lstlisting}
+\end{enumerate}
+
+\begin{correction}
+		~\\ \vspace{-5pt}
+	...
+\end{correction}
+\finexo
+
+% Solution		
+%		\newpage
+%		\setcounter{page}{1}
+%		\setcounter{section}{\numero}
+%		\Closesolutionfile{mycor}
+%		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+%		
+%
+%		\fancyhead[CO]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+%		\section{}
+%		\Readsolutionfile{mycor}
+	\end{document}

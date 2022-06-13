@@ -1,0 +1,242 @@
+\documentclass[a4paper,12pt]{article} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{1}                                    %Numéro de la série -1
+
+\input{../package.tex}
+
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO,CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+
+\setcounter{section}{\numero}
+\section{Types et opérations}				
+\Opensolutionfile{mycor}[cor01]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}  ~\\ 
+Répondre aux questions suivantes et ensuite les vérifier dans la console Python.
+
+\begin{enumerate}
+	\item De quel type est le résultat du calcul 72/3 en Python ?
+	\item Quelle est la valeur des expressions suivantes:  
+	   \begin{lstlisting}[numbers=none]
+>>> (2 or 0) and (0.1 == 1/10)
+>>> (2 or 0) and (0.1 == (0.4-0.3))
+>>> False or not (not True)
+       \end{lstlisting}
+       Pouvez vous expliquer la différence entre la première et la deuxième expression ?
+	\end{enumerate}
+
+	\begin{correction}
+		~\\ 
+		\begin{enumerate}
+	\item \lstinline{float} même si 72 et 3 sont du type \lstinline{int}. Pour vérifier: \lstinline{>>> type(72/3)}
+	\item \lstinline{>>> True}\newline
+	      \lstinline{>>> False}\newline
+	      \lstinline{>>> True}\newline
+	      Le problème est que le nombre \lstinline{0,4} est une approximation et sa soustraction avec \lstinline{0,3} donne une valeur \lstinline{> 0,1}.
+ 		\end{enumerate}
+	\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}  ~\\ 
+Tester dans la console \py les commandes suivantes:
+\begin{lstlisting}[numbers=none]
+>>> type(123)
+>>> type(123.)
+>>> type("blabla")
+>>> type(True)
+\end{lstlisting}
+
+Indiquer lesquels des objets suivants sont valides en Python et le cas échéant de quel type d'objet il s'agit :
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item "rewr"
+		\item gdru
+		\item 5
+		\item 5.0
+		\item 5,0
+		\item 'sism2021'
+		\item 18gd
+		\item "65.5"
+		\item True
+		\item "False"
+	\end{enumerate}
+\end{multicols}
+	\begin{correction}
+	~\\ 
+	Utiliser la fonction \lstinline{type()} dans l'interpréteur \py pour vérifier vos réponses.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item "rewr": str
+		\item Erreur grdu n'est pas défini.
+		\item 5: int
+		\item 5.0: float
+		\item 5,0: n'est pas un float mais un tuple (sera étudié plus tard)
+		\item 'sism2021': est un str
+		\item 18gd: invalide syntaxe
+		\item "65.5": str
+		\item True: : bool (booléen)
+		\item "False": str
+	\end{enumerate}
+\end{multicols}
+\end{correction}
+\finexo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Convertir dans un type]  ~\\ 
+ En s'aidant de la console \py, essayez de déterminer le rôle des fonctions \lstinline{int()},
+\lstinline{float()} et \lstinline{str()} en écrivant par exemple les lignes suivantes :
+\begin{lstlisting}[numbers=none]
+>>> int(3.6)
+>>> float(3)
+>>> str(3)
+>>> 2**1000
+>>> float(2**1000)
+>>> int('3')
+\end{lstlisting}
+\vspace{0.3cm}
+\textit{Indication : Vous pouvez vous aider de la commande \lstinline{type()} pour analyser le résultat des fonctions \lstinline{int()}, \lstinline{float()} et \lstinline{str()}.}
+	\begin{correction}
+	~\\ 
+	Les fonctions \lstinline{int()}, \lstinline{float()} et \lstinline{str()} permettent de convertir les données dans le type indiqué par la fonction.
+\end{correction}
+\finexo
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Expression et priorité des opérations]  ~\\ 
+Prédire le résultat des instructions suivantes en \py:
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinline{3+2*5}
+		\item \lstinline{2*5**2}
+		\item \lstinline{(2*5)**2}
+		\item \lstinline{6/4*2}
+		\item \lstinline{6.0/4*2}
+		\item \lstinline{7 + 3 * 6 / 2 - 1}
+		\item \lstinline{2 % 2 + 2 * 2 - 2 / 2}
+		\item \lstinline{3 * 9 * (3 + (9 * 3 / (3)))}
+	\end{enumerate}
+\end{multicols}
+	Entrer ces expressions dans la console \py pour vérifier les réponses.
+	
+    \begin{correction}
+	~\\ 
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinline{13}
+		\item \lstinline{50}
+		\item \lstinline{100}
+		\item \lstinline{3.0}
+		\item \lstinline{3.0}
+		\item \lstinline{15.0}
+		\item \lstinline{3.0}
+		\item \lstinline{324.0}
+		\end{enumerate}
+	\end{multicols}
+\end{correction}
+\finexo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}  ~\\ 
+Parmi les propositions, laquelle n'est pas une expression ?
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinline{a < b}
+		\item \lstinline{a != b}
+		\item \lstinline{a = b}
+		\item \lstinline{a >= b}
+	\end{enumerate}
+\end{multicols}
+\begin{correction}
+	~\\ 
+	c) a = b n'est pas une expression, il s'agit d'une affectation. La valeur de b est affectée à la variable a.
+\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\exo{}  ~\\ 
+On considère les instructions suivantes exécutées dans l'ordre.
+Quel est le résultat affiché de la commande: \lstinline{print(a==b+1)}?
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinline{8}
+		\item \lstinline{Aucun, une erreur est signalée.}
+		\item \lstinline{False}
+		\item \lstinline{True}
+	\end{enumerate}
+\end{multicols}
+\begin{lstlisting}[numbers=none]
+>>> a=8
+>>> b=5
+>>> a==b+1
+>>> b=b+1
+>>> a==b+1
+>>> b=b+1
+>>> print(a==b+1)
+\end{lstlisting}
+\begin{correction}
+	~\\ 
+	d) \lstinline{True}
+\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}  ~\\ 
+On considère les deux instructions a=a+b et b=a-b exécutées dans l'ordre. Quelle affirmation est exacte ?
+	\begin{enumerate}[label=\alph*)]
+		\item Si les valeurs initiales de a et b son respectivement "bon" et "jour", alors le programme est interrompu par une erreur.
+		\item Si les valeurs initiales de a et b son respectivement "bon" et "jour", alors les valeurs finales (des variables a et b) sont respectivement "bonjour" et "bon".
+		\item Si les valeurs initiales de a et b son respectivement 5 et 2, alors les valeurs finales (des variables a et b) sont respectivement 7 et 3.
+		\item Si les valeurs initiales de a et b son respectivement 5 et 2, alors les valeurs finales (des variables a et b) sont respectivement 7 et 2.
+	\end{enumerate}
+
+\begin{correction}
+	~\\ 
+	L'affirmation a) est correct car la soustraction (-) ne fait pas partie des opérations permises avec des chaînes de caractères.
+\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E X E R C I C E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}  ~\\ 
+Manipulations fondamentales sur les chaînes. On définit les deux suivantes:
+\begin{lstlisting}[numbers=none]
+>>> ch1 = "Ma première chaîne de caractères"
+>>> ch2 = "en Python"
+\end{lstlisting}
+Répondez, uniquement à l'aide de \lstinline{ch1} et \lstinline{ch2}, aux questions suivantes. Donnez le code \py correspondant:
+	\begin{enumerate}[label*=\arabic*] 
+		\item Quel est le nombre de caractères de \lstinline{ch1} ?
+		\item Créer la chaîne \lstinline{ch3} égale à "première".
+		\item Créer la chaîne \lstinline{ch4} égale à "Ma première chaîne de caractères en Python".
+		\item Créer la chaîne \lstinline{ch5} égale à "Mon premier".
+	\end{enumerate}
+
+\begin{correction}
+	~\\ 
+	\begin{enumerate}[label*=\arabic*] 
+		\item \lstinline{>>> len(ch1)         # renvoie 32}
+		\item \lstinline{>>> ch3 = ch1[3:11]}
+		\item \lstinline{>>> ch4 = ch1 + ch1[2]+ ch2    # Ne pas oublier l'espace}
+		\item 
+		     \lstinline{>>> l2 = len(ch2)   # pour éviter de compter les indices dans ch2}\newline
+		     \lstinline{>>> ch5 = ch1[0]+ch2[l2-2:]+ch1[2:8]+ch1[5]+ch1[4]}
+	\end{enumerate}
+\end{correction}
+\finexo
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO,CE]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}

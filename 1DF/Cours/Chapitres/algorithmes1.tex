@@ -1,0 +1,21 @@
+\mainsection{\the\numexpr \thechapter + 1 \relax}{Notions d'algorithmes}{dd/mm/yyyy}
+
+\subsection{Les algorithmes}
+Tout d’abord, qu'est-ce qu'un algorithme ? On peut le résumer de la manière suivante :
+un algorithme est une méthode générale pour résoudre certains types de problèmes. Il doit
+donc, pour chaque instance du problème, se terminer en produisant la bonne sortie, c'est-à-dire résoudre le problème posé.
+Gérard Berry résume un algorithme de la manière suivante : un algorithme, c’est tout simplement une façon de décrire dans ses moindres détails comment procéder pour faire quelque chose. 
+Donald Ervin Knuth liste 5 propriétés que doit avoir un algorithme :
+\begin{enumerate}
+    \item \textbf{finitude} : un algorithme doit toujours se terminer après un nombre fini d’étapes;
+    \item \textbf{définition précise} : chaque étape d’un algorithme doit être définie précisément les actions à effectuer doivent être spécifiées rigoureusement et sans ambiguïté pour chaque cas;
+    \item \textbf{entrées} : un algorithme prend des éléments en entrées qui sont pris dans un ensemble d’objets spécifié;
+    \item \textbf{sorties} : un algorithme donne en sorties des éléments ayant une relation spécifiée avec les entrées;
+    \item \textbf{rendement} : toutes les opérations que l’algorithme doit accomplir doivent être suffisamment basiques pour pouvoir être en principe réalisées dans une durée finie par un homme utilisant un papier et un crayon.
+\end{enumerate}
+
+Les critères de finitude, définition précise et rendrement que Knuth donne, se réfèrent tous au fait qu'un algorithme doit pouvoir être effectivement mis en œuvre, soit par un opérateur, soit par une machine. Aucune ambiguïté d’interprétation des étapes ne doit être possible, chaque étape doit faire référence à une action élémentaire pour l’opérateur et toute exécution de l’algorithme doit se terminer.
+
+La naissance des algorithmes remonte à bien avant le temps des ordinateurs. Les premiers algorithmes ont été découverts chez les Babyloniens en -3000 avant JC. Un algorithme très célèbre est l’algorithme d’Euclide (-300 avant JC) qui permet de déterminer le PGCD de deux nombres entiers positifs. Le premier à avoir systématisé des algorithmes est le mathématicien perse Al-Khwârizmî (entre 813 et 833 après JC). Il a étudié toutes les équations du second degré et en donne la résolution par des algorithmes généraux.
+
+\subsection{Le pseudo-code}

@@ -1,0 +1,157 @@
+\documentclass[a4paper,12pt]{article} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{1}                                    %Numéro de la série -1
+
+\input{../package.tex}
+
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO,CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+
+\setcounter{section}{\numero}
+\section{Types et opérations}				
+\Opensolutionfile{mycor}[cor_01]
+
+\exo{}  ~\\ 
+Tester dans la console \py les commandes suivantes
+\begin{multicols}{3}
+	\begin{lstlisting}[numbers=none]
+>>> 2-9
+>>> 7 + 3 * 4
+>>> (7 + 3) * 4
+>>> 20 / 3
+>>> 20 // 3
+>>> 18 / 3
+>>> 18 // 3
+>>> 20 % 3
+>>> 18 % 3
+>>> 4 * 4 * 4
+>>> 4 ** 3
+>>> 5 ** 1 * 2
+>>> 5 ** (1 * 2)
+>>> 5 * 1 ** 3
+>>> (5 * 1) ** 3
+>>> 59 * 100 // 60
+>>> 59 * (100 // 60)
+	\end{lstlisting}
+\end{multicols}
+\begin{enumerate}
+	\item Que représentent les symboles \lstinline{**} et \lstinline{%} ?
+		\item Pouvez-vous expliquer la différence entre \lstinline{/} et \lstinline{//} ?\\
+	\end{enumerate}
+
+	\begin{correction}
+		~\\ 
+		\begin{enumerate}
+	\item Le symbole \lstinline{**} représente l'exponentiation (\lstinline{2**3} correspond à $2^3$) et \lstinline{%} le reste de la division entière.
+	\item Le symbole \lstinline{/} représente la division décimale ($7/2$ donne 3.5 ) tandis que \lstinline{//} calcule la division entière ($7//2$ donne 3 ).
+ 		\end{enumerate}
+	\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+Tester dans la console \py les commandes suivantes
+\begin{lstlisting}[numbers=none]
+>>> type(123)
+>>> type(123.)
+>>> type("blabla")
+>>> type(True)
+\end{lstlisting}
+
+Indiquer lesquels des objets suivants sont valides en Python et le cas échéant de quel type d'objet il s'agit :
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item "rewr"
+		\item gdru
+		\item 5
+		\item 5.0
+		\item 5,0
+		\item 'sism2021'
+		\item 18gd
+		\item "65.5"
+		\item True
+		\item "False"
+	\end{enumerate}
+\end{multicols}
+	\begin{correction}
+	~\\ 
+	Utiliser la fonction \lstinline{type()} dans l'interpréteur \py pour vérifier vos réponses.
+\end{correction}
+\finexo
+
+\newpage
+
+\exo{}[Convertir dans un type]  ~\\ 
+ En s'aidant de la console \py, essayez de déterminer le rôle des fonctions \lstinline{int()},
+\lstinline{float()} et \lstinline{str()} en écrivant par exemple les lignes suivantes :
+\begin{lstlisting}[numbers=none]
+>>> int(3.6)
+>>> float(3)
+>>> str(3)
+>>> 2**1000
+>>> float(2**1000)
+>>> int('3')
+\end{lstlisting}
+\vspace{0.3cm}
+\textit{Indication : Vous pouvez vous aider de la commande \lstinline{type()} pour analyser le résultat des fonctions \lstinline{int()}, \lstinline{float()} et \lstinline{str()}.}
+	\begin{correction}
+	~\\ 
+	Les fonctions \lstinline{int()}, \lstinline{float()} et \lstinline{str()} permettent de convertir les données dans le type indiqué par la fonction.
+\end{correction}
+\finexo
+
+\exo{}[Expression et priorité des opérations]  ~\\ 
+Prédire le résultat des instructions suivantes en \py
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinline{3+2*5}
+		\item \lstinline{2*5**2}
+		\item \lstinline{(2*5)**2}
+		\item \lstinline{3*5+3}
+		\item \lstinline{6*2/4}
+		\item \lstinline{6/4*2}
+		\item \lstinline{6.0/4*2}
+		\item \lstinline{7 + 3 * 6 / 2 - 1}
+		\item \lstinline{2 % 2 + 2 * 2 - 2 / 2}
+			\item \lstinline{3 * 9 * (3 + (9 * 3 / (3))))}
+		\end{enumerate}
+	\end{multicols}
+	Entrer ces expressions dans un terminal \py pour vérifier les réponses.
+	
+	\begin{correction}
+	~\\ 
+\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinline{13}
+		\item \lstinline{50}
+		\item \lstinline{100}
+		\item \lstinline{18}
+		\item \lstinline{3.0}
+		\item \lstinline{3.0}
+		\item \lstinline{3.0}
+		\item \lstinline{15.0}
+		\item \lstinline{3.0}
+		\item \lstinline{324.0}
+		\end{enumerate}
+	\end{multicols}
+\end{correction}
+\finexo
+
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO,CE]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}

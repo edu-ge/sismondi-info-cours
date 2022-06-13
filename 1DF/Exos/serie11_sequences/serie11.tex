@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt]{article} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{10}                                    %Numéro de la série -1
+
+\input{../package.tex}
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO,CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+
+\setcounter{section}{\numero}
+\section{Les séquences et les boucles for}				
+\Opensolutionfile{mycor}[cor_01]
+
+\exo[Quelle boucle choisir]{}  ~\\ 
+Quelle boucle est adaptée à l’écriture de programmes traitant les problèmes suivants :
+\begin{enumerate}
+	\item le calcul du total à payer à une caisse enregistreuse,
+	\item la recherche du jour le plus pluvieux d’une année,
+	\item le calcul du périmètre d’un polygone,
+	\item le calcul de la durée d’une émission de radio, connaissant ses horaires de début et de fin ?
+\end{enumerate}
+\begin{correction}
+	~\\ 
+	\begin{enumerate}
+		\item   Une boucle \lstinline!while! : on ne sait pas combien il y aura d’articles, on ne s’arrête que lorsque le tapis est vide.
+		\item Une boucle \lstinline!for! : le corps de la boucle doit être répété 365 fois exactement.
+		\item Cela dépend : si le nombre de côtés est connu, une boucle \lstinline!for! , sinon, une boucle \lstinline!while! qui s’arrête lorsqu’on est revenu au sommet de départ.
+		\item Il n’y a pas besoin de boucle.
+	\end{enumerate}
+\end{correction}
+\finexo
+
+
+\exo{}  ~\\ 
+\begin{enumerate}[label=\alph*)]
+	\item Écrire un programme qui, étant donnés deux bornes entières a et b données en entrée par l’utilisateur, additionne les multiples de 3 et 5 compris entre ces bornes. Ainsi, pour a = 0 et b = 32, le résultat doit être 0 + 15 + 30 = 45.
+	\item Modifier légèrement le programme précédent pour qu’il additionne les multiples de 3 ou 5 compris entre les bornes a et b. Ainsi, pour a = 0 et b = 32, le résultat doit être 0 + 3 + 5 + 6 + 9 + 10 + 12 + 15 + 18 + 20 + 21 + 24 + 25 + 27 + 30 = 225
+\end{enumerate}
+\begin{correction}
+	~\\ 
+	\begin{enumerate}[label=\alph*)]
+		\item \lstinputlisting[numbers=none]{codes/ex2_corrige_a.py}
+		
+		\item  \lstinputlisting[numbers=none]{codes/ex2_corrige_b.py}
+	\end{enumerate}
+
+
+\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+	Écrire un programme qui détermine le plus petit multiple commun à deux nombres entiers entrés au clavier.
+	\begin{correction}
+		~\\ 
+		\lstinputlisting[numbers=none]{codes/ex3_corrige.py}
+	\end{correction}
+\finexo
+
+
+\exo{}  ~\\ 
+Écrire un script qui prend en entrée une chaîne de caractères et retourne en sortie une copie de la chaîne entrée après avoir inséré un astérisque entre tous les caractères. 
+Exemple : \texttt{gaston} devra donner \texttt{g*a*s*t*o*n}.
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex4_corrige.py}
+\end{correction}
+\finexo
+
+
+\exo{}  ~\\ 
+Écrire un programme qui prend en entrée une chaîne de caractères et retourne en sortie une copie de la chaîne entrée après avoir inversé l’ordre des caractères qui la composent. 
+Exemple : gaston devra donner notsag.
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex5_corrige.py}
+\end{correction}
+\finexo
+
+
+
+\exo{}  ~\\ 
+Une balle rebondissante est lâchée du haut d'un immeuble de 10 mètres. A chaque rebond la hauteur diminue d'un tiers. Combien de fois la personne du premier niveau dont la fenêtre est située à 1 mètre 50 du sol verra elle passer la balle ? 
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex6_corrige.py}
+\end{correction}
+\finexo
+
+
+\exo{}  ~\\ 
+Un triplet pythagoricien est un ensemble de trois entiers (a, b, c) pouvant représenter les trois côtés d’un triangle rectangle c’est-à-dire vérifiant l’égalité $c^2 = a^2 + b^2$ . Écrire un programme qui génère tous les triplets pythagoriciens (sans doublon) où $a$, $b$ et $c$ sont inférieurs à 50.
+\begin{correction}
+	~\\ 
+		\lstinputlisting[numbers=none]{codes/ex7_corrige.py}
+\end{correction}
+\finexo
+
+
+\exo{}[Apprendre en  autonomie avec france IOI]  ~\\ 
+Allez sur le site de france IOI sur \url{http://www.france-ioi.org/}, puis valider la séquence 2 (Niveau 2) :  "\textit{2 – Découverte des tableaux}".
+\finexo
+
+\exo{}  ~\\ 
+Pour une valeur initial $u_0$, on définit la suite de Syracuse de $u_0$ de la manière suivante :
+\begin{itemize}
+	\item si $u_n = 1$, alors la suite est finie et un est son dernier élément (on arrête de calculer d’autres éléments)
+	\item si $u_n$ est pair, alors $u_n+1  = u_n / 2$
+	\item si $u_n$ est impair et distinct de 1, alors $u_n+1 = 3 u_n + 1$
+\end{itemize}
+Écrire un programme qui affiche les termes de la suite $\{u_k\}$.
+Cette suite est-elle finie ?
+Pour aller plus loin, aller vous renseigner sur la Conjecture de Syracuse1.\\
+
+.
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex9_corrige.py}
+\end{correction}
+
+\finexo
+
+\cleardoublepage
+
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO,CE]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}

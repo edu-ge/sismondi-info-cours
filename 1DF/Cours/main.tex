@@ -1,0 +1,70 @@
+\documentclass{notes}
+\usepackage[french]{babel}
+\usepackage{pdfpages}
+\usepackage{minitoc}
+
+\usepackage{eurosym}
+
+\usepackage{subfig}
+
+% for bullet point in french
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage[
+type={CC},
+modifier={by-nc-sa},
+version={3.0},
+]{doclicense}
+
+\newcommand{\py}{\lstinline{Python} }
+
+
+\begin{document}
+
+
+
+\include{entete}
+\clearpage
+\doclicenseThis
+\clearpage
+\renewcommand{\thepage}{\roman{page}}
+\setcounter{page}{1}
+
+\dominitoc
+\tableofcontents
+%\listoffigures
+%\listofmyequations
+
+\clearpage
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+
+
+%\include{lecture1}
+
+% Thème Informations et données
+\include{Chapitres/Introduction}
+\include{Chapitres/Information_et_donnee}
+\include{Chapitres/ordinateur}
+\include{Chapitres/fonctionnement_ordinateur}
+\include{Chapitres/Stockage_donnees}
+% reference
+% https://pixees.fr/informatiquelycee/prem/index.html
+
+% Thème Algorithmique et programmation
+\include{Chapitres/algorithmes1}
+\include{Chapitres/algorithmes2}
+\include{Chapitres/intro_lang_prog}
+\include{Chapitres/types}
+\include{Chapitres/variable}
+\include{Chapitres/test}
+\include{Chapitres/booleen}
+\include{Chapitres/boucles}
+\include{Chapitres/string}
+\include{Chapitres/tableaux}
+\include{Chapitres/fonctions}
+
+\include{Chapitres/biblio}
+
+
+\end{document}

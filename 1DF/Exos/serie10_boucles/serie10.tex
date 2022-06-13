@@ -1,0 +1,126 @@
+\documentclass[a4paper,12pt]{article} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{9}                                    %Numéro de la série -1
+
+\input{../package.tex}
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO,CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+
+\setcounter{section}{\numero}
+\section{Les Boucles}				
+\Opensolutionfile{mycor}[cor_01]
+
+\exo{}  ~\\ 
+Écrire un programme qui détermine si une année entrée par l’utilisateur est bissextile ou non.
+Pour savoir si une année A est bissextile il faut qu’une des conditions suivantes soit vérifiée :
+\begin{itemize}
+	\item si l'année est divisible par 4 et non divisible par 100 ;
+	\item si l'année est divisible par 400.
+\end{itemize}
+Vérifier que 2000, 2024, 2028 et 2032 sont des années bissextiles mais que 2021, 2022 et 1900 ne sont pas des années  bissextiles.
+\begin{correction}
+	~\\ 
+	\textbf{Première version :}
+	\lstinputlisting[numbers=none]{codes/ex0_corrige.py}
+	
+	\textbf{Deuxième version :}	
+	\lstinputlisting[numbers=none]{codes/ex0_corrigeb.py}	
+	
+\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+Soit le programme suivant:
+\lstinputlisting[numbers=none]{codes/ex1.py}
+\begin{enumerate}
+	\item Qu’affichera le programme en sortie? Vérifier votre réponse en exécutant le programme sur l'exécuteur pas à pas \url{http://pythontutor.com/visualize.html#mode=edit}.
+	\item Écrire et tester un programme qui affiche tous les entiers pairs compris entre 18 et 45.\\
+	\textit{Pour tester qu'un nombre \lstinline{n} est pair on peut caluler le reste de la division par 2 : }\lstinline!n % 2 == 0!
+	\item Écrire et tester un programme qui affiche tous les entiers impairs compris entre 50 et 150.
+	\textit{Pour tester qu'un nombre \lstinline{n} est pair on peut caluler le reste de la division par 2 : }\lstinline!n % 2 == 1!
+\end{enumerate}
+\begin{correction}
+	~\\ 
+	\textbf{2.}\lstinputlisting[numbers=none]{codes/ex1_corrige_2.py}
+	\textbf{3.} \lstinputlisting[numbers=none]{codes/ex1_corrige_3.py}
+\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+Écrire et tester un programme permettant de calculer la somme des entiers naturels pairs inférieurs ou égaux à 1000
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex3_corrige.py}
+\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+On place un capital de 500CHF sur un compte rémunéré à 3% par an.
+Le programme ci-dessous a pour but de calculer le nombre d'années au bout desquelles le capital sera doublé. 
+\lstinputlisting[numbers=none]{codes/ex4.py}
+Le problème est que le programme contient une erreur !
+\begin{enumerate}
+	\item Corriger le programme afin qu’il atteigne le but espéré, puis le tester.
+	\item Modifier le programme précédent de telle sorte que le capital et le taux de rémunération soient saisis en entrée. Le tester dans un nouveau contexte à décrire (avec de nouvelles valeurs).
+\end{enumerate}
+\begin{correction}
+	~\\ 
+	\begin{enumerate}
+		\item 	\lstinputlisting[numbers=none]{codes/ex4_corrige_1.py}
+		\item 	\lstinputlisting[numbers=none]{codes/ex4_corrige_2.py}
+	\end{enumerate}
+	
+	\lstinputlisting[numbers=none]{codes/ex4_corrige_1.py}
+\end{correction}
+
+\finexo
+
+\exo{}  ~\\ 
+Le jeu des allumettes : ce jeu se joue à deux joueurs. Au départ 30 allumettes sont disposées. Puis, à tour de rôle, chaque joueur enlève au maximum 3 allumettes. Le joueur qui prend la dernière allumette a perdu ! Exemple d’affichage: 
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex3_corrige.py}
+\end{correction}
+\finexo
+
+\exo{}[Apprendre en  autonomie avec france IOI]  ~\\ 
+Allez sur le site de france IOI sur \url{http://www.france-ioi.org/}, puis valider la séquence 8 "\textit{Répétitions conditionnées}".
+\finexo
+
+\exo{}[facultatif, pour les matheux !]  ~\\ 
+Une tortue s'élance sur une piste de 10 mètres de long. Le jour, elle parcourt 1 mètre, la nuit, elle se repose.
+\vspace{3mm}
+Seulement, voilà, la piste, en caoutchouc, s'étire toutes les nuits de 10 mètres. Ainsi, au deuxième matin, la tortue se retrouve à deux mètres du début de la piste, mais à 18 mètres de son extrémité. Lorsqu'elle s'endort le soir, il lui reste encore 17 mètres à parcourir. 
+\vspace{3mm}
+Et lorsqu'elle se réveille le matin suivant, la piste a 30 mètres de long, dont plus de 25 mètres sont devant elle!
+\begin{enumerate}
+	\item La tortue arrivera-t-elle au bout de la piste?
+	\item Si oui, en combien de temps?
+	\item Rédiger un script qui détermine le nombre de jours.
+\end{enumerate}
+
+\textit{Indication : calculer la fraction de la piste que la tortue parcours chaque jour.}
+
+
+\finexo
+
+\cleardoublepage
+
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO,CE]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}

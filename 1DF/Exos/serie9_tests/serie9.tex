@@ -1,0 +1,123 @@
+\documentclass[a4paper,12pt]{article} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{8}                                    %Numéro de la série -1
+
+\input{../package.tex}
+
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO,CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+
+\setcounter{section}{\numero}
+\section{Les instructions conditionnelles}				
+\Opensolutionfile{mycor}[cor_01]
+
+\exo{}  ~\\ 
+Déterminez l’action des instructions \lstinline{if} , \lstinline{elif} et \lstinline{else} en exécutant le script suivant:
+		\lstinputlisting[numbers=none]{codes/ex1.py}
+
+\finexo
+
+\exo{}  ~\\ 
+Déterminez le rôle des opérateurs  \lstinline{==}  ;  \lstinline{!=}  ;  \lstinline{>}  et  \lstinline{<}  en essayant dans le mode interactif : 
+\begin{lstlisting}[numbers=none]
+>>> 2 > 1
+
+>>> 2 < 1
+
+>>> 1 == 1
+
+>>> 1 == 2
+
+>>> 2 != 1
+
+>>> 2 != 2	
+
+\end{lstlisting}
+\begin{correction}
+	~\\ 
+	Ce sont les opérateurs pour comparer des nombres. En particulier, \lstinline{==} vérifie si deux nombre sont égaux, c'est l'égalité mathématiques. On rappel qu'en Python le symbole \lstinline{=} représente l'affectation.
+	
+\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+Que vaut la variable solution à la fin du programme suivant ? % rep : 1202
+\lstinputlisting[numbers=none]{codes/ex3.py}
+\begin{correction}
+	~\\ 
+	1202
+\end{correction}
+\finexo
+
+\newpage
+
+\exo{}  ~\\ 
+Que vaut la variable solution à la fin du programme suivant ? 
+\lstinputlisting[numbers=none]{codes/ex4.py}
+\begin{correction}
+	~\\ 
+	\lstinline{'C'}
+\end{correction}
+\finexo
+
+
+\exo{}  ~\\ 
+Écrire un algorithme qui affiche le maximum de 2 nombres x et y qui ont été entrés par l’utilisateur.
+
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex5_corrige.py}
+\end{correction}
+\finexo
+
+
+\exo{}  ~\\ 
+On considère le programme suivant :
+\lstinputlisting[numbers=none]{codes/ex6.py}
+\begin{enumerate}
+	\item Comprendre le fonctionnement afin de pouvoir compléter les messages dans les « \lstinline{print} ».
+	\item Modifier le programme dans le but de vérifier si un nombre est divisible par 29.
+	\item Les nombres suivants 
+	$$565 ;\ \  6785 ;\ \  646 195 034 ;\ \  1 970 659 794$$
+	sont-ils divisibles par 29 ?
+\end{enumerate}
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex6_corrige.py}
+\end{correction}
+\finexo
+
+\exo{}  ~\\ 
+Résolution d’une équation quadratique. Créez un programme qui demande à l’utilisateur les coefficients a, b et c  puis affiche les solutions (si elles existent...) de l’équation quadratique: 
+$$a  x^2 + b  x + c = 0.$$ 
+
+\begin{correction}
+	~\\ 
+	\lstinputlisting[numbers=none]{codes/ex7_corrige.py}
+\end{correction}
+\finexo
+
+\exo{}[Apprendre en  autonomie avec france IOI]  ~\\ 
+Allez sur le site de france IOI sur \url{http://www.france-ioi.org/}, puis valider la séquence 5 "\textit{Tests et conditions}".
+\finexo
+
+\cleardoublepage
+
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO,CE]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}

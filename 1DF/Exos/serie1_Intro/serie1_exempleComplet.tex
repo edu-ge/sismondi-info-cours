@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{answers}
+
+\renewcommand{\familydefault}{\sfdefault} % pour avoir des polices san serif
+
+\newtheorem{Exc}{EXERCICE}
+\Newassociation{correction}{Soln}{mycor}
+\renewcommand{\Solnlabel}[1]{CORRIGE #1}
+\def\exo#1{%
+	\futurelet\testchar\MaybeOptArgmyexoo}
+\def\MaybeOptArgmyexoo{
+	\ifx[\testchar \let\next\OptArgmyexoo
+	\else \let\next\NoOptArgmyexoo \fi \next}
+\def\OptArgmyexoo[#1]{%
+	\begin{Exc}[#1]\normalfont}
+	\def\NoOptArgmyexoo{%
+		\begin{Exc}\normalfont}
+		\newcommand{\finexo}{\end{Exc}}
+	\newcommand{\flag}[1]{}
+	\newcommand{\entete}[1]
+	
+	
+	\begin{document}
+	\Opensolutionfile{mycor}[cor_01]
+		
+		\exo{} 
+		Énoncé de l’exercice \\ 
+		blahh \dots 
+		and co. 
+		\begin{correction}
+			Corrigé de l’exercice \\
+			brof, heuh 
+		\end{correction}
+		\finexo 
+		
+		Commentaires entre deux exos/ 
+		
+		\exo{}[Exotique] ~\\
+		Énoncé de l’exercice \\ 
+		babah 
+		\begin{correction}
+			Corrigé de l’exercice \\
+			voila voila 
+			c'est tout. 
+		\end{correction}
+		\finexo
+		
+		Encore un peu de texte hors exo.  
+		
+		\newpage
+		\setcounter{page}{1}
+		\Closesolutionfile{mycor}
+		\Readsolutionfile{mycor}
+	\end{document}

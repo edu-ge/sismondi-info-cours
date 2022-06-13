@@ -1,0 +1,39 @@
+\mainsection{1}{Lecture Title}{dd/mm/yyyy}
+
+\section{Title 1}
+
+\subsection{Title 1.1}
+	You can use the custom putfigure command to add figures to the document. the command takes 6 arguments - how much horizontal size to create a bounding box, width, height, path to image, caption, label.
+	
+\verb!\putfigure{1.0}{0.7}{0.3}{Images/rl1}{Many Faces of RL}{fig1_1}! \\
+
+\putfigure{1.0}{0.7}{0.3}{Images/rl1}{Many Faces of RL}{fig1_1}
+
+\subsection{Title 1.2}
+
+\section{Title 2}
+	Adding multiple images using putfigure with minipage \\
+\verb!\begin{minipage}{\textwidth}! \\
+\verb!    \centering! \\
+\verb!        \putfigure{0.49}{1.0}{0.2}{Images/rl2}{A generic RL schematic diagram}{fig1_2}! \\
+\verb!        \putfigure{0.49}{1.0}{0.2}{Images/rl3}{An RL agent with environment loop}{fig1_3}! \\
+\verb!\end{minipage}! \\
+
+\begin{minipage}{\textwidth}
+	\centering
+		\putfigure{0.49}{1.0}{0.2}{Images/rl2}{A generic RL schematic diagram}{fig1_2}
+		\putfigure{0.49}{1.0}{0.2}{Images/rl3}{An RL agent with environment loop}{fig1_3}
+\end{minipage}
+
+	You can use the myequations command to add any equation to the list of equations in contents. Just pass the name for that equation with the command \\
+
+
+\verb!\begin{align}! \\
+\verb!    \S_t = \f(\H_t)! \\
+\verb!\end{align}! \\
+\verb!\myequations{Generic state RL system}! \\
+
+\begin{align}
+	\S_t = \f(\H_t)	
+\end{align}
+\myequations{Generic state RL system}

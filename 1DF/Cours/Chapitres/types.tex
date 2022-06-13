@@ -1,0 +1,143 @@
+\mainsection{\the\numexpr \thechapter + 1 \relax}{Types et opérations}{dd/mm/yyyy}
+
+Tous les langages de programmation ont été crées dans le même but \textbf{traiter de l'information}. Dans un langage impératif, on retrouve toujours les trois concepts suivant 
+\begin{itemize}
+	\itemb{La notion de valeur} qui représente l'information.
+	\itemb{La notion d'expression} qui produit une valeur
+	\itemb{La notion d'instructions ou de structure de contrôle} qui utilise des valeurs pour exécuter des commandes d'une manière bien spécifique.
+\end{itemize}
+
+\subsection{La notion de valeur}
+Une valeur est une représentation de l'information. Par exemple le nombre entier \lstinline{3} représente une valeur, de même que la chaîne de caractères \lstinline{"Hello world"} ou le tableau de nombres à virgule flottante \lstinline{[7.31, 1.74, 3.14, 10.0]}  (similaire aux nombres décimaux). Une valeur est toujours associée à un type (nombre entier/virgule flottante, chaîne de caractères).\\
+
+\subsection{La notion d'expression}
+Des valeurs, des opérateurs mathématiques et des parenthèses peuvent former une expression. Une expression est évaluée et le résultat de cette évaluation donne une valeur. 
+\begin{mydefinition}
+	Une expression est le résultat d'un calcul effectué par le programme. Elle fournit une valeur associé à un type.
+\end{mydefinition}
+
+On peut utiliser l'interpréteur python pour évaluer des expressions
+\begin{myexample}
+	\begin{lstlisting}[numbers=none]
+>>>(1 + 2) * (3 + 4)
+21
+	\end{lstlisting}
+	Ici l'expression produit la valeur \lstinline{21} qui est de type entier.
+\end{myexample}
+
+\subsection{La notion d'instructions ou de structure de contrôle}
+Les \textbf{structures de contrôle} permettent de gérer le flux d'exécution d'un programme, c'est-à-dire l'ordre dans lequel les \textbf{instructions} seront exécutés. Une instruction peut être interprété comme une commande ou un ordre que l'on donne à la machine. En \py, il y deux types d’instruction:
+\begin{itemize}
+	\item affectation : qui effectue un calcul et qui le stock en mémoire dans une variable.
+	\item fonction    : qui est une "commande" prédéfinie. 
+\end{itemize}
+\begin{myexample}
+	\vspace{-3mm}
+	\begin{lstlisting}[numbers=none]
+>>> x = 1 + 2       # c'est une affectation
+>>> print(x)        # c'est un appel à une fonction
+3
+	\end{lstlisting}
+	\vspace{-3mm}
+\end{myexample}
+%\begin{mdframed}[topline=false,rightline=false,bottomline=false]
+%	\hspace*{-\parindent}%
+%	\rlap{\smash{\colorbox{white}{\strut\hspace{\parindent}}}}%
+%	Les \textbf{structures de contrôle} permettent de gérer le flux d'exécution d'un programme, c'est-à-dire l'ordre dans lequel les \textbf{instructions} seront exécutés. Une instruction peut être interprété comme une commande ou un ordre que l'on donne à la machine. En \py, il y deux types d’instruction:
+%\end{mdframed}
+
+
+
+
+\begin{eclairage}
+	Tout texte qui suit le caractère dièse "\lstinline{#}" est ignoré par \py, on appelle ceci des commentaires. Leur but est d’expliquer le fonctionnement du programme. C’est une bonne habitude de commenter abondamment le code.
+\end{eclairage}
+Pour utiliser une instruction, par exemple la \textbf{fonction} \lstinline{print}, il faut lui fournir une valeur (l'information à afficher). Dans l'exemple
+\begin{lstlisting}[numbers=none]
+>>> print("I love computer science")
+I love computer science
+\end{lstlisting}\vspace*{-10px}
+la valeur à afficher est le message \lstinline{"I love computer science"}. En revanche, la commande 
+\begin{lstlisting}[numbers=none]
+>>>print(3 * 5 + 2)
+17
+\end{lstlisting}\vspace*{-10px}
+ne produit pas le même résultat que 
+\begin{lstlisting}[numbers=none]
+>>> print("3 * 5 + 2")
+3 * 5 + 2
+\end{lstlisting}\vspace*{-10px}
+car dans le premier cas la valeur est un nombre qui est le résultat de l'évaluation de l'expression $3\cdot 5 +2$ (un nombre entier), et dans le second la valeur est le message \lstinline{"3 * 5 + 2"} qui est une chaîne de caractère (un message).
+\begin{eclairage}
+	Les fonctions sont des instructions déjà définies qui font faire quelque chose au programme. La plupart des langages de programmation, par exemple \py, possède toute une série de fonctions prédéfinies qui permettent de réaliser des tâches standard, comme la fonction \lstinline{print} qui permet d'afficher des messages dans l'interpréteur. L'appel d'une fonction s'effectue en indiquant le nom	de la fonction, suivi d'une paire de parenthèses. Ces parenthèses contiennent les éventuels arguments de la fonction, c'est à dire les valeurs nécessaires pour que la fonction puisse être exécutée, séparés par des virgules (exemple \lstinline{print("J'ai ", 16, " ans")}).
+\end{eclairage}
+
+
+\section{La notion de type}
+Le type d'information, qu'une valeur peut encoder, varie d'un langage à l'autre. En général, plus le langage est de haut niveau plus il va offrir des types élaborés. La plupart des langages proposent un certain nombre de \textbf{types de base} \footnote{on dit aussi \textbf{types fondamentaux} ou encore \textbf{types primitifs}}. Ils correspondent aux données qui peuvent être traitées directement par le langage. En \py, les quatre types de base incontournables sont
+\begin{enumerate}
+	\itemb{Les entiers (\lstinline{int}) }:  \lstinline{-4}, \lstinline{0}, \lstinline{99.}\\
+	$ \longrightarrow$ Ils servent a représenter des nombres de manières exactes.
+	\itemb{Les nombres à virgules flottantes (\lstinline{float})} : \lstinline{20.5 },  \lstinline{10.  } ou \lstinline{ 0.001}.\\
+	$ \longrightarrow$ Ils servent a représenter des nombres (éventuellement) approximativement, c’est un genre de notation scientifique en puissance de 2 avec un certains nombres de chiffres significatifs (rappel : en notation scientifique en puissance de $10$, on écrit $7000000001 \approx 7,00 \cdot 10^9$ ).\\
+	\textbf{Attention} : On utilise un point pour séparer la partie entière de la partie décimale (ex : 2.68) et non une virgule !
+	\itemb{Les chaînes de caractères (\lstinline{str})}: \lstinline{"Hello, World"}, \lstinline{'Oui'.}\\
+	$ \longrightarrow$ elles servent a représenter du texte, par exemple lorsque l’on veut afficher une information dans l’interpréteur. Elle sont constituées d'une suite de caractères
+	(lettre, chiffre, signe de ponctuation, espace, ...) placées entre guillemets ou (de manière équivalente) entre apostrophes.
+	\itemb{Les booléens (\lstinline{bool})}: Seulement deux valeurs possibles \lstinline{True} (vrai) ou \lstinline{False} (faux).\\
+	$ \longrightarrow$ Ils servent à représenter \textit{les valeurs de vérité}, par exemple lorsque l'on cherche à évaluer une condition. L'évaluation de l'expression \lstinline{7 < 18} donne la valeur \lstinline{True} tandis que le résultat de \lstinline{0 > 1} donne \lstinline{False}
+\end{enumerate}
+Les 4 types présentés ci-dessus sont ceux qu'on retrouve dans quasiment tous les langages de programmation. \py, étant un langage de haut niveau, propose une grande quantité de types de bases (voir la liste complète à \url{https://fr.wikiversity.org/wiki/Python/Les_types_de_base}).
+
+\begin{apprendre}
+	Pour connaître le type d’une donnée, il suffit de recourir à la fonction \lstinline{type}
+	\begin{lstlisting}[numbers=none]
+>>> type(10)
+<class 'int'>
+>>> type(10.0)     #  le type float est caractérisé par un point décimal
+<class 'float'>
+>>> type("10")     # le type string est caractérisé par les guillemets
+<class 'str'>
+	\end{lstlisting}
+\end{apprendre}
+
+
+\section{Les opérations}
+L’essentiel du travail effectué par un programme consiste à manipuler des données. Peu importe la donnée et son type, ils se ramènent toujours en définitive à une suite finie de bits. Mais alors, pourquoi se compliquer la vie? Deux raisons,
+\begin{enumerate}
+	\item La taille d'une donnée, c'est-à-dire le nombre de bits nécessaire pour la représenter varie en fonction du type de donné.\\
+	Exemple: la chaîne de caractère \lstinline{"c'est trop long"} nécessite plus de bits que le nombre  \lstinline{8}.
+	\item Il existe des opérations associé à la plupart des types. Ces opérations vont permettre de transformer l'information en opérant sur les valeurs d'entrées du programme.
+\end{enumerate}
+
+
+\subsection{Opération sur les nombres}
+Les opérations sur les nombres sont les suivantes :
+
+\def\arraystretch{1.5}
+\begin{table}[h!]
+	\small
+	\begin{tabular}{llllll|c|l|}
+		\cline{7-8}
+		&                               &                                   &                                     &                               &                         & \multicolumn{2}{c|}{\footnotesize \textbf{Seulement pour les int}}\\ \hline
+		\multicolumn{1}{|l|}{\textbf{opérateur}}                 & \multicolumn{1}{c|}{+}        & \multicolumn{1}{c|}{-}            & \multicolumn{1}{c|}{*}              & \multicolumn{1}{c|}{/}        & \multicolumn{1}{c|}{**} & //                                                                               & \multicolumn{1}{c|}{\%} \\ \hline
+		\multicolumn{1}{|l|}{\textbf{signification}}             & \multicolumn{1}{l|}{addition} & \multicolumn{1}{l|}{soustraction} & \multicolumn{1}{l|}{multiplication} & \multicolumn{1}{l|}{division} & exponentiation          & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Division \\ entière\end{tabular}} & Modulo                  \\ \hline
+	\end{tabular}
+\end{table}
+On note que la division entière \lstinline{//} et le modulo \lstinline{%} 
+(le reste de la division entière) sont des opérations seulement définies sur les entiers (\lstinline{int}).
+
+\subsubsection{Priorité des opérations}
+Comme en mathématique, les opérateurs ont un ordre de priorité. Ainsi si le calcul \lstinline{4+2*3} correspond à \lstinline{4+(2*3)} parce que la multiplication a priorité sur l'addition. L’ordre de priorité est le suivant :
+\begin{enumerate}
+	\item Exponentiation (Puissance)
+	\item Modulo
+	\item Multiplication et division entières
+	\item Addition et soustraction
+\end{enumerate}
+Sur les opérateurs de même priorité, c’est celui qui est le plus à gauche qui est évalué en premier. Les parenthèses permettent de changer ces priorités. Leurs effet sera de forcer une opération avant une autre. Par exemple, Si on veut d'abord effectuer \lstinline{4+2} et multiplier le résultat par \lstinline{3}, alors il faut l'indiquer avec des parenthèses : (4+2)*3
+
+
+\subsection{Opérations sur les booléens et les chaîne de caractère}
+Les opération avec les booléens et les chaîne de caractère seront traités dans des chapitres dédiés.
+

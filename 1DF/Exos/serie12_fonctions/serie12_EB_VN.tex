@@ -1,0 +1,351 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTANTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\numero}{11}                                    %Numéro de la série -1
+
+\input{../package.tex}
+\definecolor{light-gray}{gray}{0.95} 
+\lstset{language=Python, upquote=true, showstringspaces=false, columns=fullflexible, basicstyle = \ttfamily, backgroundcolor = \color{light-gray}, numbers=right, stepnumber=1, keywordstyle=\color{blue}, stringstyle=\color{magenta}, commentstyle=\color{red}, breaklines=true,} 
+
+\begin{document}
+%		\title{\vspace{-3cm}Série 1}
+%		\date{\vspace{-2cm}}
+%		\maketitle
+
+\fancyhead[CO]{\sc Série \arabic{section} \hspace{0.5mm}}
+%\fancyhead[CE]{\sc Série \arabic{section} \hspace{0.5mm}}
+\setcounter{section}{\numero}
+
+\section{Structure de contrôle et utilisation de fonctions}
+\Opensolutionfile{mycor}[cor01]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+\begin{lstlisting}
+n = 4
+for i in range(n):
+    print(i)
+\end{lstlisting}
+Que va afficher ce code Python ?
+\begin{lstlisting}https://www.overleaf.com/project/614b7a33668562d2ad26e0cd
+n = 4
+for i in range(2, n):
+    print(i)
+\end{lstlisting}
+Et celui-ci ?
+\begin{correction}
+		~\\ \vspace{-5pt}
+		Le premier exemple affichera successivement les valeurs 1, 2 et 3.
+		
+		Le second affichera uniquement 2 et 3.
+	\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+Voici un code en Python:
+\begin{lstlisting}
+x = 1
+for i in range(4):
+    x = x + i
+\end{lstlisting}
+Quelle est la valeur finale de x ?
+\begin{correction}
+		~\\ \vspace{-5pt}
+		%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+		La variable i prend successivement les valeurs 0, 1, 2 et 3. Donc x prend les valeurs 1, 2, 4 et 7.
+\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+Voici une fonction définie en Python:
+\begin{lstlisting}
+def f(x):
+    for d in range(2, x):
+        if x % d == 0:
+            return d
+\end{lstlisting}
+Que renvoie la fonction f si le paramètre x a la valeur 15 ?
+\begin{correction}
+		~\\ \vspace{-5pt}
+		%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+		Le nombre 15 est divisible par 3, donc la fonction renvoie 3. Ce retour interrompt le code.
+\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+Que va afficher le code suivant ?
+\begin{lstlisting}
+compteur = 0
+while compteur < 12:
+    if(compteur%3)==0:
+        print("Zig")
+    elif(compteur%3)==1:
+        print("Zag")
+    elif(compteur%3)==2:
+        print("Zoug")
+    compteur += 1
+\end{lstlisting}
+\begin{correction}
+Le résultat sera affiché sera:
+\begin{lstlisting}
+Zig
+Zag
+Zoug
+Zig
+Zag
+Zoug
+Zig
+Zag
+Zoug
+Zig
+Zag
+Zoug
+\end{lstlisting}
+\end{correction}
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+Que va afficher le code suivant si vous vous prénommez Cindy ?
+\begin{lstlisting}
+texte_debut = "Bonjour"
+texte_fin = "Au revoir"
+prenom = input("Quel est votre prénom ? : ")
+for i in range(4):
+    print(texte_debut, prenom + ".")
+    if i == 3 :
+        print(texte_fin, prenom + ".")
+\end{lstlisting}
+\begin{correction}
+Le résultat sera affiché sera:
+\begin{lstlisting}
+Bonjour Cindy.
+Bonjour Cindy.
+Bonjour Cindy.
+Bonjour Cindy.
+Au revoir Cindy.
+\end{lstlisting}
+	\end{correction}
+
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+Après le code Python qui suit, quelles sont les valeurs finales de x et de y ?
+\begin{lstlisting}
+x = 4
+while x > 0:
+    y = 0
+    while y < x:
+        y = y + 1
+        x = x - 1
+\end{lstlisting}
+\begin{correction}
+		~\\ \vspace{0pt}
+		%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+Les valeurs de x sont strictement décroissantes et la valeur de y est remise à 0 dès qu'elle n'est plus strictement inférieure à celle de x. Au dernier passage dans la boucle interne, y vaut 0, et x vaut 1 : y prend alors la valeur de 1 et x la valeur de 0;
+on sort de la boucle interne puis de la boucle externe.
+On a une boucle infinie si on remplace y=0 par y=1.
+\end{correction}
+
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Compréhension de code]  ~\\ 
+Analysez le script ci-dessous et indiquez ce qui sera affiché.
+\begin{lstlisting}
+# definition de la fonction
+def table_7():
+    for n in range(1, 13):
+        print(n*7, end=' ')
+    
+# appel de la fonction
+table_7()
+\end{lstlisting}
+\begin{correction}
+		~\\ \vspace{-5pt}
+		%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+La variable n prend successivement les valeurs de 1 à 12.
+Le résultat sera affiché sera:
+\begin{lstlisting}
+7 14 21 28 35 42 49 56 63 70 77 84 
+\end{lstlisting}
+end=' '  dans la fonction print indique de ne pas aller à la ligne et de séparer chaque print(n*7) par un espace.
+	\end{correction}
+
+\finexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Erreur de syntaxe]  ~\\ 
+Chacun des scripts ci-dessous contient une erreur de syntaxe différente. Laquelle ? Après avoir deviné, vous pouvez tester en mode interactif : soyez attentifs au message d’erreur affiché !
+\begin{lstlisting}
+def table_7()
+    for n in range(13):
+        print(n*7,end=' ')
+\end{lstlisting} 
+\begin{lstlisting}           
+def table_7:
+    for n in range(13):
+        print(n*7,end=' ')        
+\end{lstlisting} 
+\begin{lstlisting}   
+table_7():
+    for n in range(13):
+        print(n*7,end=' ')
+\end{lstlisting} 
+\begin{lstlisting}       
+def table_7():
+for n in range(13):
+    print(n*7,end=' ')
+\end{lstlisting}
+\begin{correction}
+	~\\ \vspace{-5pt}
+	%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+	\begin{enumerate}
+        \item Il manque \lstinline{:} après \lstinline{def table_7()}
+        \item Il manque \lstinline{()} entre \lstinline{table_7 et :}
+        \item Il manque \lstinline{def} au début de la fonction \lstinline{table_7():}
+        \item la boucle \lstinline{for} n'est pas indentée correctement dans la fonction.
+    \end{enumerate}
+\end{correction}
+\finexo
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Les différences]  ~\\ 
+Analysez les deux scripts suivants : quelles sont les différences ? Constatez-vous une ou plusieurs erreurs de programmation ?
+\begin{lstlisting}
+def est_pair(n):
+    if n % 2 == 0:
+        print('True')
+    else:
+        print('False')
+
+nombre = 14
+if not est_pair(nombre):
+    print(nombre,' est impair')
+else:
+    print(nombre,' est pair')
+\end{lstlisting} 
+\begin{lstlisting}  
+def est_pair(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+
+nombre = 14
+if not est_pair(nombre):
+    print(nombre,' est impair')
+else:
+    print(nombre,' est pair')
+\end{lstlisting}
+Est-ce que le code de la 2ème fonction peut être simplifiée ? Si oui comment ?
+\begin{correction}
+	~\\ \vspace{-5pt}
+	%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+	\begin{enumerate}
+        \item Dans le 1er code, la fonction \lstinline{est_pair} ne retourne pas de valeur codée. La fonction retourne par défaut \lstinline{None}. Le programme affichera \lstinline{True} ensuite \lstinline{14 est impair} ce qui est faux !
+        \item Le 2ème code est correct.
+        \item Oui, la fonction peut être simplifiée.
+    \end{enumerate}
+\begin{lstlisting}  
+def est_pair(n):
+    if n % 2 == 0:
+        return True
+    return False
+\end{lstlisting}
+Il n'est pas nécessaire d'ajouter le bloc \lstinline{else:} car l'instruction \lstinline{return True} interrompt l’exécution de la fonction ! Mais il est encore possible de simplifier en retournant directement l'évaluation du test \lstinline{n % 2 == 0} qui est soit True, soit False. Notez que les parenthèses ne sont pas nécessaire pour encadrer l'expression évaluée.
+\begin{lstlisting}  
+def est_pair(n):
+    return n % 2 == 0
+\end{lstlisting}
+
+\end{correction}
+
+\finexo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Les paramètres]  ~\\ 
+On peut aussi passer à la fonction une liste de {\it paramètres}. Analysez le script ci-dessous et indiquez son résultat.
+\begin{lstlisting}
+# definition de la fonction    
+def tableMulti(base, debut, fin):
+    for n in range(debut, fin+1):
+        print(n*base, end=' ')
+
+# appel de la fonction
+tableMulti(8, 13, 17)
+\end{lstlisting}
+\begin{correction}
+	~\\ \vspace{-5pt}
+	%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+    Les nombres suivants seront affichés:
+    \lstinline{104 112 120 128 136}
+\end{correction}
+\finexo
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exo{}[Variables locales - variables globales]  ~\\ 
+En fonction du point d'exécution d'un programme, la visibilité des variables n'est pas la même: les variables définies dans le contexte de base sont dites globales, les variables définies dans une fonction sont locales.
+
+Donner le résultat ou l'erreur affiché pour les deux codes suivants:
+\begin{lstlisting}
+a = 1
+b = 2
+def test(a,b):
+    a = 5
+    print(a,b)
+
+test(3,4)
+print(a,b)
+\end{lstlisting} 
+
+\begin{lstlisting}
+a = 1
+b = 2
+def test(a,b):
+    print(a,b)
+    
+def test2(c,d):
+    print(a,b)
+    
+def test3():
+    c = 3
+    d = 4
+
+test(a,b)
+test2(3,4)
+test3()
+print(c,d)
+\end{lstlisting}
+\begin{correction}
+	~\\ \vspace{-5pt}
+	%\\lstinputlisting[numbers=none]{codes/corr_exo_verif_age.py}
+    Premier programme, les nombres suivants seront affichés:
+   \begin{lstlisting}
+   5 4
+   1 2
+   \end{lstlisting}
+    Deuxième programme, les nombres suivants seront affichés:
+   \begin{lstlisting}
+   1 2
+   1 2
+    ... Erreur: c n'est pas définie...
+       print(c,d)
+   NameError: name 'c' is not defined
+   \end{lstlisting}
+
+\end{correction}
+
+
+\finexo
+
+% Solution		
+		\newpage
+		\setcounter{page}{1}
+		\setcounter{section}{\numero}
+		\Closesolutionfile{mycor}
+		\titleformat{\section}[hang]{\Large \bfseries}{Corrigé Série \thesection:\ }{0pt}{}
+		
+
+		\fancyhead[CO]{\sc Corrigé Série \arabic{section} \hspace{0.5mm}}
+		\section{}
+		\Readsolutionfile{mycor}
+	\end{document}
