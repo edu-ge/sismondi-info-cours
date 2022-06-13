@@ -11,3 +11,6 @@ L'utilisation d'issues et de pull requests sont les bienvenues. Pour collaborer 
 * Tutoriels Git : 
   * https://www.gitkraken.com/learn/git/tutorials
   * https://www.hostinger.fr/tutoriels/tuto-git
+* Gitflow : ![gitflow_1-3645484304](https://user-images.githubusercontent.com/32131211/173457918-54a19b0d-cfea-471a-9223-888f80bf9260.png)
+* Tutoriel latex :
+  * https://zestedesavoir.com/tutoriels/826/introduction-a-latex/
