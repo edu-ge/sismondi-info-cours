@@ -26,19 +26,15 @@ Il est souvent nécessaire en programmation de devoir répéter un bloc d'instru
 \end{center}\end{figure}
 
 \begin{example}
-L'exemple suivant permet d'afficher la liste des collèges de Genève. Pour chaque élément de la boucle, le programme va exécuter l'instruction print en attribuant à la variable |college| la valeur suivante du tableau.
+L'exemple suivant permet d'afficher 10x le mot "Coucou". À chaque itération de la boucle, le programme va exécuter la ligne contenant l'instruction |print|.
 \end{example}
 
 \lstset{caption={Boucle for - parcours tableau}}
 \begin{lstlisting}
-collegesGe = [ "Alice Rivaz" ,  "Calvin" ,  "Claparède",  "de Candolle", 
-"de Saussure",  "Rousseau",  "Sismondi",  "Voltaire", 
-"André-Chavanne", "Emilie Gourd",  "Madame de Stael"]
-
-print("Voici la liste des collèges de Genève :")
-for college in collegesGe:
-  print("Collège", college)
+for k in range(10):
+    print("Coucou")
 \end{lstlisting}
+
 
 \begin{remarque}
 Dans les cas où l'on veut exécuter un bloc d'instructions un nombre précis de fois, la fonction |range(begin,end)| permet de générer un tableau de |begin| à |end-1| qui peut ensuite être utilisé avec une boucle |for|. L'exemple~\ref{ex:counter} peut ainsi être écrit : 
@@ -85,31 +81,108 @@ L'instruction |compteur += 1| est équivalente à |compteur = compteur + 1| et s
 \end{remarque}
 
 
-\begin{exercice}
-Imaginez et écrivez ici :
-\item[a)] une boucle infinie, n'atteignant jamais sa condition de fin : \vskip+3cm
-\item[b)] une boucle qui n'exécute jamais son bloc d'instructions: \vskip+3cm
-\end{exercice}
-%TODO introduce break, continue, else ?
 
 
 
 \subsection{Exercices sur les ordinateurs}
 
 \begin{exercice}
-Écrivez un programme listant les nombres pairs de 0 à 50.
+Écrire un programme listant :
+\item[a)] les nombres de 0 à 50.
+\item[b)] les nombres pairs de 0 à 50.
+\item[a)] les nombres de 50 à 100.
+\item[a)] les nombres  de 0 à 20, dans l'ordre décroissant.
 \end{exercice}
 
 \begin{exercice}
-Écrivez un programme énumérant les 100 premiers nombres de la suite de Fibonacci.
+Écrire un programme qui demande à l'utilisateur-trice de saisir un nombre entier et qui affiche la table de multiplication de ce nombre de à 10.
+\end{exercice}
+
+
+\begin{exercice}
+Calculer la somme des entiers de 1 à 100.
 \end{exercice}
 
 \begin{exercice}
-Écrivez un programme permettant d'additionner les 100 premiers entiers naturels (1, 2, ..., 100). % reponse : 5050.
+Écrire un programme permettant de réaliser la figure ci-dessous :
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+\end{exercice}
+
+
+\begin{exercice}
+Écrire un programme permettant de réaliser la figure ci-dessous :
+
+\#
+
+\#\#
+
+\#\#\#
+
+\#\#\#\#
+
+\#\#\#\#\#
+
+\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#
+
+\#\#\#\#\#\#\#\#\#\#
+\end{exercice}
+
+
+\begin{exercice}
+Demander à l'utilisateur-trice de saisir un mot jusqu'à ce qu'iel saisisse un mot de plus de 5 caractères.
 \end{exercice}
 
 \begin{exercice}
-En vous inspirant de l'exercice \ref{exo:min}, écrivez un programme trouvant le minimum entre N nombres.
+Demander à l'utilisateur-trice de saisir un nombre jusqu'à ce qu'iel saisisse un nombre pair. 
+\end{exercice}
+
+\begin{exercice}
+Afficher le menu d'un programme jusqu'à ce que l'utilisateur-trice saisisse "q" pour quitter.
+\end{exercice}
+
+
+\begin{exercice}
+Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et qui affiche cette phrase sans les espaces.
+\end{exercice}
+
+
+\begin{exercice}
+Imaginez :
+\item[a)] une boucle infinie, n'atteignant jamais sa condition de fin.
+\item[b)] une boucle qui n'exécute jamais son bloc d'instructions.
+\end{exercice}
+
+\begin{exercice}
+Écrire un programme énumérant les 100 premiers nombres de la suite de Fibonacci.
+\end{exercice}
+
+\begin{exercice}
+Écrire un programme permettant d'additionner les 100 premiers entiers naturels (1, 2, ..., 100). % reponse : 5050.
+\end{exercice}
+
+\begin{exercice}
+En vous inspirant de l'exercice \ref{exo:min}, écrire un programme trouvant le minimum entre N nombres.
 Testez avec N=10.
 \end{exercice}
 
