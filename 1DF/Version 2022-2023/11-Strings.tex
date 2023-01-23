@@ -96,14 +96,41 @@ mot = "hello"
 for c in mot:
   print(c)
 \end{lstlisting}
-affiche : 
+affiche chaque lettre du mot |"hello"| les unes après les autres.
+
+\subsection{Autres fonctions}
+|.lower()| renvoie une chaîne avec tous les caractères majuscules convertis en minuscules.
+
+|.upper()| renvoie la chaîne avec tous les caractères minuscules convertis en majuscules.
+
+\lstset{caption={lower / upper}}
 \begin{lstlisting}
-h
-e
-l
-l
-o
+salutation = "Bienvenue chez Chili's"
+print(salutation.lower())    # affiche bienvenue chez chili's
 \end{lstlisting}
+%
+%dinosaure = "T-Rex" 
+%print(dinosaure.upper())    # affiche T-REX
+
+|.isalpha()| renvoie |True| si tous les caractères de la chaîne sont alphabétiques et qu'elle contient au moins un caractère, sinon |False|.
+
+|.isdigit()| renvoie |True| si tous les caractères de la chaîne sont des chiffres et qu'elle contient au moins un caractère, sinon |False|.
+
+\lstset{caption={isalpha / isdigit}}
+\begin{lstlisting}
+texte = "LeGrandParc"
+if texte.isalpha():
+    print("Contient que des lettres")
+else:
+    print("Contient d'autres caractère")
+# affiche Contient que des lettres
+\end{lstlisting}
+%    
+%texte = "12345"
+%if texte.digit():
+%    print("Contient que des chiffres")
+%else:
+%    print("Contient d'autres caractère")    # affiche Contient que des chiffres
 
 
 \section{Exercices}
