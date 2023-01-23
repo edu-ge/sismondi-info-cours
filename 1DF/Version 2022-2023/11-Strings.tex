@@ -1,0 +1,158 @@
+
+\documentclass[11pt, a4paper]{book}
+\input{package.tex}
+\pgfplotsset{compat=1.17}
+\begin{document}
+
+\setcounter{chapter}{8}
+\chapter{Programmation - Chaînes de caractères}
+\section{Introduction}
+
+
+Les chaînes de caractères (type \texttt{str)}  en Python sont des séquences de caractères qui peuvent être utilisées pour stocker des textes. Les chaînes de caractères sont définies entre apostrophes ('),  guillemets simples ("), ou  guillemets triples (""").
+\lstset{caption={Chaînes de caractères}}
+\begin{lstlisting}
+str1 = "Ceci me permet d'écrire l'apostrophe."
+str2 = 'Ceci me permet de "placer" le guillemet.'
+str3 = """Ceci me permet d'écrire
+sur plusieurs lignes"""
+\end{lstlisting}
+
+\section{Boite à outils}
+\subsection{Opérateurs}
+L'opérateur + permet de concaténer des chaînes de caractères.
+L'opérateur * permet de répéter une chaîne de caractères plusieurs fois.
+
+
+\lstset{caption={Opérateurs}}
+\begin{lstlisting}
+chaine1 = "Bonjour"
+chaine2 = " toi !"
+chaine3 = chaine1 + chaine2
+print(chaine3) 					# affiche "Bonjour toi !"
+
+chaine4 = "Coucou "
+chaine5 = chaine4 * 3
+print(chaine5) 					# affiche "Coucou Coucou Coucou "
+\end{lstlisting}
+
+\subsection{Fonction len()}
+En Python, la len() fonction intégrée peut être utilisée pour déterminer la longueur d'un objet. Il peut être utilisé pour calculer la longueur de chaînes, de listes, d'ensembles et d'autres objets dénombrables.
+
+
+
+\lstset{caption={Fonction len()}}
+\begin{lstlisting}
+longueur = len("Hello")
+print("La longueur:",longueur) 					# affiche 5
+\end{lstlisting}
+
+\subsection{in}
+La syntaxe |in| est utilisée pour déterminer si une lettre ou une sous-chaîne existe dans une chaîne. 
+
+Elle renvoie |True| si une correspondance est trouvée, sinon |False| est renvoyée.
+
+
+\lstset{caption={in}}
+\begin{lstlisting}
+jeu = "Popular Nintendo Game: Mario Kart"
+
+if "l" in jeu:
+    print("1 est dans la chaîne jeu.")
+else:
+    print("1 n'est pas dans la chaîne jeu.")
+\end{lstlisting}
+
+
+\subsection{Indexation et découpage des chaînes}
+Un seul caractère peut être accédé avec la notation entre crochets |[index]|, ou une sous-chaîne peut être accédée en utilisant le découpage |[start:end]|.
+
+L'indexation avec des nombres négatifs compte à partir de la fin de la chaîne.
+
+
+
+\lstset{caption={indexation}}
+\begin{lstlisting}
+mot = 'orange'
+#      012345 => index
+
+
+mot[1]     # => 'r'
+mot[-1]    # => 'e'
+mot[4:6]   # => 'ge'
+mot[:4]    # => 'oran'
+mot[-3:]   # => 'nge'
+\end{lstlisting}
+
+
+\subsection{Itérer la chaîne}
+Pour parcourir une chaîne en Python, la notation |for ... in| est utilisée.
+
+
+
+\lstset{caption={iteration}}
+\begin{lstlisting}
+mot = "hello"
+for c in mot:
+  print(c)
+\end{lstlisting}
+affiche : 
+\begin{lstlisting}
+h
+e
+l
+l
+o
+\end{lstlisting}
+
+
+\section{Exercices}
+
+
+\begin{exercice}
+Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et qui affiche la longueur de cette phrase.
+\end{exercice}
+
+\begin{exercice}
+Écrire un programme qui demande à l'utilisateur-trice de saisir deux mots et qui dit si les deux mots sont les mêmes.
+\end{exercice}
+
+\begin{exercice}
+\begin{itemize}
+\item[a)] Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et qui affiche les 10 premiers caractères de cette phrase.
+\item[b)] Modifier le code pour demander également à l'utilisateur-trice le nombre de caractères à afficher.
+\end{itemize}
+
+\end{exercice}
+
+\begin{exercice}
+Afficher le menu d'un programme jusqu'à ce que l'utilisateur-trice saisisse "q" pour quitter.
+
+\texttt{--- Menu --- \\
+1. Option 1\\
+2. Option 2\\
+q. Quitter\\
+Choisissez une option :}
+\end{exercice}
+
+\begin{exercice}
+\begin{itemize}
+\item[a)] Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et dit si elle contient la lettre "a".
+\item[b)] Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et qui compte le nombre de lettres "a".
+\item[c)] Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et qui compte le nombre de voyelles.
+\end{itemize}
+
+\begin{exercice}
+Écrire un programme qui demande à l'utilisateur-trice de saisir une phrase et qui affiche cette phrase sans les espaces.
+\end{exercice}
+
+\end{exercice}
+
+
+\begin{exercice}
+Écrire un programme qui demande à l'utilisateur-trice de saisir un mot et qui affiche ce mot à l'envers.
+\end{exercice}
+
+
+
+\end{document}
