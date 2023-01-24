@@ -74,14 +74,13 @@ L'indexation avec des nombres négatifs compte à partir de la fin de la chaîne
 \lstset{caption={indexation}}
 \begin{lstlisting}
 mot = 'orange'
-#      012345 => index
+#      012345 
 
-
-mot[1]     # => 'r'
-mot[-1]    # => 'e'
-mot[4:6]   # => 'ge'
-mot[:4]    # => 'oran'
-mot[-3:]   # => 'nge'
+print(mot[0])     # => 'o'
+print(mot[1])     # => 'r'
+print(mot[4:6])   # => 'ge'
+print(mot[:4])    # => 'oran'
+print(mot[-1])     # => 'e'
 \end{lstlisting}
 
 
