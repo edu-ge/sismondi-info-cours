@@ -5,61 +5,7 @@
 \begin{document}
 
 \setcounter{chapter}{1}
-\chapter{Représentation des caractères et des images}
-
-\section{Les codes de caractères}
-
-\subsection{La table ASCII}
-
-\begin{center}
-\begin{figure}[h!]
-\centerline{\includegraphics[width=18cm]{images/ASCII2}}
-\end{figure}
-\end{center}
-
-Le binaire permet de coder les nombres que les systèmes informatiques peuvent manipuler. Cependant, l'ordinateur doit aussi utiliser des caractères alphanumériques pour mémoriser et transmettre des textes par exemple de l’ordinateur vers l’imprimante, d’un automate programmable vers un terminal, d’un clavier vers un processeur, etc. 
-
-Le code {\bf ASCII} (American Standard Code for Information Interchange) représente les caractères sur 7 bits (c'est-à-dire 128 caractères possibles, de 0 à 127). Les codes 0 à 31 ne sont pas des caractères. On les appelle caractères de contrôle car ils permettent de faire des actions telles que : retour à la ligne (CR). Bip sonore (BEL). Les codes 65 à 90 représentent les majuscules. Les codes 97 à 122 représentent les minuscules. Le caractère A par exemple à pour code 65 soit 01000001 en binaire. 
-
-
-Par exemple: 
-\begin{enumerate}[a)]
-\item Le caractère f : 102 
-\item le point d'interrogation ? : 63 
-\item Le chiffre 2 : 50
-\end{enumerate}
-
-Le code ASCII a été mis au point pour la langue anglaise, il ne contient donc pas de caractères accentués, ni de caractères spécifiques à une langue. Le code ASCII a donc été étendu à 8 bits pour pouvoir coder plus de caractères (on parle d'ailleurs de code ASCII étendu...)
-
-\subsection{Unicode}
-
-Le code ASCII est utilisable pour l'anglais mais limité pour les autres langues. Il n'y a que 95 caractères imprimables.
-
-Le code Unicode est un système de codage des caractères sur 16 bits mis au point en 1991. Le système Unicode permet de représenter n'importe quel caractère par un code sur 16 bits, indépendamment de tout système d'exploitation ou langage de programmation (environ 64 000 caractères).
-
-Il regroupe ainsi la quasi-totalité des alphabets existants (arabe, arménien, cyrillique, grec, hébreu, latin, ...) et est compatible avec le code ASCII.
-
-L'ensemble des codes Unicode est disponible sur le site {\bf http://www.unicode.org}.
-
-
-\subsection{Exercices}
-\begin{exercice}
-Traduire le mot {\it Sismondi} en code ASCII binaire.
-\end{exercice}
-
-\begin{exercice}
-En s’aidant de la table ASCII, classer par ordre croissant les caractères suivants (ne pas tenir compte des virgules) : ESC, A, NUL, Delete, m, 8, <, a, ?
-\end{exercice}
-
-\begin{exercice}
-Traduire en lettres les mots suivants qui sont codés en ASCII (binaire):
-\begin{enumerate}
-\item 01100011 01101111 01110101 01100011 01101111 01110101
-\item 01001000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 00100000 00100001
-\end{enumerate}
-\end{exercice}
-
-\section{Représentation des images}
+\chapter{Représentation numérique de l’information - Images}
 
 \subsection{Image numérique}
 

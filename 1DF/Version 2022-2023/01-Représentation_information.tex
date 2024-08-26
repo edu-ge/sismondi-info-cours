@@ -5,12 +5,6 @@
 \begin{document}
 \chapter{Représentation numérique de l’information}
 
-{\it Objectifs :}
-\begin{itemize}
-\item Comprendre les différentes manières d'encoder des nombres;
-\item Distinguer les avantages et les inconvénients de ces encodages.
-
-\end{itemize}
 
 \section{Introduction}
 
@@ -18,7 +12,14 @@ Lorsque nous utilisons un logiciel, chaque action que nous effectuons avec la so
 
 {\it “Transmettre des informations sous forme numérique suppose entre autres d'optimiser la taille des messages transmis pour éviter de surcharger les canaux de transmission, d'être capable de rectifier des erreurs apparues en cours de transmission, de crypter les contenus et d'authentifier les émissaires et les destinataires…” }(Dunod, 2006)
 
-Les images, le son, le texte et les vidéos sont des informations qu’un ordinateur peut traiter. Un ordinateur est composé de circuits électroniques qui fonctionnent à l'électricité. L’information est représentée physiquement par un signal électrique ou magnétique qui, au-delà d'un certain seuil, correspond à la valeur 1 si non par 0. Par conséquent, l’information est toujours sous forme d’un ensemble de nombres écrit en base 2 par exemple 011001.
+Les images, le son, le texte et les vidéos sont des informations qu’un ordinateur peut traiter. Un ordinateur est composé de circuits électroniques qui fonctionnent à l'électricité. L’information est représentée physiquement par un\textbf{ signal électrique ou magnétique qui, au-delà d'un certain seuil, correspond à la valeur 1 si non par 0}. Par conséquent, l’information est toujours sous forme d’un ensemble de nombres écrit en \textbf{base 2 par exemple 011001.}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=.5]{images/electric_binary}
+\end{center}
+\end{figure}
+
 En 1939, Claude Shannon a été le premier à faire un parallèle entre l'algèbre booléenne (une algèbre binaire, n'acceptant que vrai et faux comme valeurs, et trois fonctions logiques “Et (*), Ou(+), Non(-)”) et le fonctionnement des circuits électriques. Le vrai/faux se transforme en 1 : le courant passe, 0 : il ne passe pas. C'est Shannon qui popularise le terme de bit:
 
 \begin{defi}
@@ -72,7 +73,7 @@ Par exemple, $1101_{(2)}=1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1\cdot 2^0=13
 
 \subsubsection{Conversion binaire décimale}
 
-Une autre façon d'obtenir le nombre en base 10, connaissant son écriture en base 2, est d'établir la valeur de chaque chiffre du nombre: celui le plus à droite représente 1, le deuxième représente 2, le troisième représente $2^2=4$, le quatrième représente $2^3=8$...  Par exemple si nous voulons connaitre la valeur décimale du nombre 10 110, nous établissons d'abord une grille avec les différentes puissances de 2:
+Une autre façon d'obtenir le nombre en base 10, connaissant son écriture en base 2, est d'établir la valeur de chaque chiffre du nombre: celui le plus à droite représente 1, le deuxième représente 2, le troisième représente $2^2=4$, le quatrième représente $2^3=8$, etc. comme dans la grille ci-dessous :  
 
 \begin{center}
 \begin{tikzpicture}
@@ -86,9 +87,9 @@ Une autre façon d'obtenir le nombre en base 10, connaissant son écriture en ba
 	\draw (-.5,0.5) node {$64$};
 	
 \end{tikzpicture}
-\end{center}
+\end{center} 
 
-Ensuite, nous plaçons le nombre en binaire sous cette grille en mettant bien le chiffre des unités sous le carré le plus à droite et nous barrons les cases dont le chiffre associé est 0:
+Par exemple si nous voulons connaitre la valeur décimale du nombre 10110, nous établissons d'abord une grille avec les différentes puissances de 2; ensuite, nous plaçons le nombre en binaire sous cette grille en mettant bien le chiffre des unités sous le carré le plus à droite et nous barrons les cases dont le chiffre associé est 0:
 
 \begin{center}
 \begin{tikzpicture}
@@ -109,10 +110,11 @@ Ensuite, nous plaçons le nombre en binaire sous cette grille en mettant bien le
 	\draw (0.5,-0.5) node {$ $};
 	\draw (-.5,-0.5) node {$ $};
 	
-	\draw (-1,0) -- (0,1)
-				(0,0) -- (1,1)
-				(2,0) -- (3,1)
-				(5,0) -- (6,1);
+%	\draw (-1,0) -- (0,1)
+%				(0,0) -- (1,1)
+%				(2,0) -- (3,1)
+%				(5,0) -- (6,1);
+	\draw (-1,-1) rectangle (0,0) rectangle (1,-1) rectangle (2,0) rectangle (3,-1) rectangle (4,0) rectangle (5,-1) rectangle (6,0);
 	
 \end{tikzpicture}
 \end{center}
@@ -132,6 +134,24 @@ Il ne reste plus qu'à additionner les nombres qui restent: $16 + 4 + 2=22$
 
 \end{enumerate}
 \end{multicols}
+
+Vous pouvez utiliser le tableau ci-dessous : 
+
+\begin{center}
+\begin{tikzpicture}
+	\draw (-3,1) rectangle (-2,0) rectangle (-1,1) rectangle (0,0) rectangle (1,1) rectangle (2,0) rectangle (3,1) rectangle (4,0) rectangle (5,1) rectangle (6,0);
+	\draw (5.5,0.5) node {$1$};
+	\draw (4.5,0.5) node {$2$};
+	\draw (3.5,0.5) node {$4$};
+	\draw (2.5,0.5) node {$8$};
+	\draw (1.5,0.5) node {$16$};
+	\draw (0.5,0.5) node {$32$};
+	\draw (-.5,0.5) node {$64$};
+	\draw (-3,-4) rectangle (-2,0) rectangle (-1,-4) rectangle (0,0) rectangle (1,-4) rectangle (2,0) rectangle (3,-4) rectangle (4,0) rectangle (5,-4) rectangle (6,0);
+	
+\end{tikzpicture}
+\end{center} 
+
 \end{exercice}
 
 \subsubsection{Conversion décimale binaire}
@@ -143,7 +163,15 @@ Pour trouver l'écriture binaire d'un nombre écrit en base 10, il existe princi
 
 La première méthode consiste à décomposer le nombre en somme de puissance de 2 et à utiliser la grille précédente. 
 
-Plus concrètement, si nous voulons écrite 99 en binaire. La plus grande puissance de 2 que nous pouvons prendre dans 99 est 64 (128, la suivante, est trop grande). Il reste ensuite: 99-64=35. Dans 35 on peut mettre 32, et il restera 35-33=3. Dans 3 on ne peut ni mettre 16, ni mettre 8, ni mettre 4. On peut mettre 2. Il reste 1. Dans 1 on peut mettre 1. 
+Plus concrètement, si nous voulons écrite 99 en binaire. La plus grande puissance de 2 que nous pouvons prendre dans 99 est 64 (128, la suivante, est trop grande). Il reste ensuite: 
+
+99-\textbf{64}= 35. Dans 35 on peut mettre 32, et il restera 
+
+35-\textbf{33}= 3. Dans 3 on ne peut ni mettre 16, ni mettre 8, ni mettre 4. On peut mettre 2 :
+
+3-\textbf{2} = 1 Il reste 1. Dans 1 on peut mettre 1 :
+
+1-\textbf{1} = 0
 
 Cela signifie que 99=64+32+2+1. Sur notre grille cela donne:
 
@@ -166,10 +194,10 @@ Cela signifie que 99=64+32+2+1. Sur notre grille cela donne:
 	\draw (0.5,-0.5) node {$1$};
 	\draw (-.5,-0.5) node {$1$};
 	
-	\draw (1,0) -- +(1,1)
-				(2,0) -- +(1,1)
-				(3,0) -- +(1,1)
-				;
+%	\draw (1,0) -- +(1,1)
+%				(2,0) -- +(1,1)
+%				(3,0) -- +(1,1)
+%				;
 	
 \end{tikzpicture}
 \end{center}
@@ -442,30 +470,29 @@ L'avantage de cette méthode est que la somme deux nombres opposés donnera bien
 En supposant que les nombres soient écrits sur 8 bits, vérifier que 80 + (-80) = 0.
 \end{exercice}
 
+
+
 \subsection{Résumé}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=.55]{images/tablerepresentation}
+\includegraphics[scale=.45]{images/tablerepresentation}
 \end{center}
 \end{figure}
 
 \begin{exercice}
 Complétez le tableau ci-dessous:
 
-
-
 \end{exercice}
-
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=.3]{images/tableauconversion}
+\includegraphics[scale=.25]{images/tableauconversion}
 \end{center}
 \end{figure}
 
-\begin{exercice}
-Utiliser un tableur pour faire une conversion d'une base à l'autre.
-\end{exercice}
+%\begin{exercice}
+%Utiliser un tableur pour faire une conversion d'une base à l'autre.
+%\end{exercice}
 
 
 \begin{exercice}
@@ -481,7 +508,7 @@ Donner la représentation signée sur un octet des nombres suivants:
 \end{exercice}
 
 
-\begin{exercice}*
+\begin{exercice}\textbf{* Complément à deux }
 \begin{enumerate}[a)]
 \item Donner la représentation en complément à deux des nombres suivants:
 
@@ -497,9 +524,8 @@ Donner la représentation signée sur un octet des nombres suivants:
 
 
 \begin{exercice}
-
 Nous donnons trois nombres binaires:
-\begin{enumerate}[1)]
+\begin{enumerate}[a)]
 \item 00101010
 \item 1011
 \item 10111111
@@ -507,10 +533,89 @@ Nous donnons trois nombres binaires:
 
 \begin{enumerate}
 \item Que valent ces nombres en représentation non signée?
-\item * Que valent ces nombres en représentation signée?
+\item Que valent ces nombres en représentation signée?
 \item * Que valent ces nombres en complément à 2?
 \end{enumerate}
-
 \end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item On voudrait encoder des emojis en binaire; en d'autres mots, on voudrait faire correspondre chaque emoji à un code binaire différent.
+\begin{enumerate}
+\item Combien peut-on encoder de symboles (ici des emojis) différents sur 3 bits ?
+\item Sur 5 bits ?
+\item Sur 11 bits ?
+\end{enumerate}
+
+\vspace{10pt}
+\item On se pose maintenant la question inverse : 
+\begin{enumerate}
+\item Combien me faut-il de bits pour encoder 8 symboles différents ?
+\item 9 symboles ?
+\item 69 symboles ?
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+
+
+\section{Les codes de caractères}
+
+\subsection{La table ASCII}
+
+\begin{center}
+\begin{figure}[h!]
+\centerline{\includegraphics[width=18cm]{images/ASCII2}}
+\end{figure}
+\end{center}
+
+Le binaire permet de coder les nombres que les systèmes informatiques peuvent manipuler. Cependant, l'ordinateur doit aussi utiliser des caractères alphanumériques pour mémoriser et transmettre des textes par exemple de l’ordinateur vers l’imprimante, d’un automate programmable vers un terminal, d’un clavier vers un processeur, etc. 
+
+Le code {\bf ASCII} (American Standard Code for Information Interchange) représente les caractères sur 7 bits (c'est-à-dire 128 caractères possibles, de 0 à 127). Les codes 0 à 31 ne sont pas des caractères. On les appelle caractères de contrôle car ils permettent de faire des actions telles que : retour à la ligne (CR). Bip sonore (BEL). Les codes 65 à 90 représentent les majuscules. Les codes 97 à 122 représentent les minuscules. Le caractère A par exemple à pour code 65 soit 01000001 en binaire. 
+
+
+Par exemple: 
+\begin{enumerate}[a)]
+\item Le caractère f : 102 
+\item le point d'interrogation ? : 63 
+\item Le chiffre 2 : 50
+\end{enumerate}
+
+Le code ASCII a été mis au point pour la langue anglaise, il ne contient donc pas de caractères accentués, ni de caractères spécifiques à une langue. Le code ASCII a donc été étendu à 8 bits pour pouvoir coder plus de caractères (on parle d'ailleurs de code ASCII étendu...)
+
+\subsection{Unicode}
+
+Le code ASCII est utilisable pour l'anglais mais limité pour les autres langues. Il n'y a que 95 caractères imprimables.
+
+Le code Unicode est un système de codage des caractères sur 16 bits mis au point en 1991. Le système Unicode permet de représenter n'importe quel caractère par un code sur 16 bits, indépendamment de tout système d'exploitation ou langage de programmation (environ 64 000 caractères).
+
+Il regroupe ainsi la quasi-totalité des alphabets existants (arabe, arménien, cyrillique, grec, hébreu, latin, ...) et est compatible avec le code ASCII.
+
+L'ensemble des codes Unicode est disponible sur le site {\bf http://www.unicode.org}.
+
+
+\subsection{Exercices}
+\begin{exercice}
+Traduire en code ASCII binaire les textes :
+\begin{multicols}{2}
+\begin{enumerate}
+\item { Sismondi}
+\item { Cc cv ?}
+\end{enumerate}
+\end{multicols}
+\end{exercice}
+
+\begin{exercice}
+Traduire en lettres les mots suivants qui sont codés en ASCII (binaire):
+\begin{enumerate}
+\item 01100011 01101111 01110101 01100011 01101111 01110101
+\item 01001000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 00100000 00100001
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+* En s’aidant de la table ASCII, classer par ordre croissant les caractères suivants (ne pas tenir compte des virgules) : ESC, A, NUL, Delete, m, 8, <, a, ?
+\end{exercice}
+
 
 \end{document}
